@@ -121,24 +121,45 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar className="w-full border-none  bg-[#04516B] dark:bg-black dark:text-[#bb86fc] shadow-lg dark:border-0 max-w-screen-2xl py-6 px-4 rounded-none lg:px-8 lg:py-3">
-        <div className="w-full container flex px-10 items-center max-w-screen-2xl mx-auto justify-between text-blue-gray-900">
-          <Link to={"/"}>
-            {theme === "dark" ? (
-              <img className="w-32 lg:w-48" src={darkLogo} alt="darkLogo" />
-            ) : (
-              <img className="w-32 lg:w-48" src={darkLogo} alt="logo" />
-            )}
-          </Link>
-
-          <div className="hidden lg:block">{navList}</div>
-
-          <div className="flex justify-center gap-9 items-center">
-            <div className="dropdown dropdown-end  hidden lg:block">
+    <div className="navbar bg-[#19a3ce]">
+  <div className="navbar-start">
+    <div className="dropdown">
+      <label tabIndex={0} className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>Item 1</a></li>
+        <li tabIndex={0}>
+          <a className="justify-between">
+            Parent
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+          </a>
+          <ul className="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+    <img src="https://i.ibb.co/Bz8QR2F/channels4-profile-removebg-preview.png" className="w-20"></img>
+  </div>
+  <div className="ml-[-100px] hidden lg:flex">
+    <ul className="menu menu-horizontal ">
+      <li className="text-white font-bold"><Link>Home</Link></li>
+      <li className="text-white font-bold"><Link>About</Link></li>
+      <li className="text-white font-bold"><Link>Dashboard</Link></li>
+      <li className="text-white font-bold"><Link>Courses</Link></li>
+      <li className="text-white font-bold"><Link>Blogs</Link></li>
+      <li className="text-white font-bold"><Link>Contact</Link></li>
+    </ul>
+  </div>
+  <div className="navbar-end">
+     <div className="dropdown dropdown-end  hidden lg:block">
               {/* {user?.uid && ( */}
               <label tabIndex={0} className=" cursor-pointer">
-                <div className="avatar mt-3 ">
-                  <div className="w-12 rounded-full ring  ">
+                <div className="avatar  ">
+                  <div className="w-12 rounded-full ring mr-8 mt-2 ">
                     {user ? (
                       <img alt="userImage" src={user?.photoURL} />
                     ) : (
@@ -154,7 +175,7 @@ const Header = () => {
               {/* )} */}
               <ul
                 tabIndex={0}
-                className="mt-3 p-2 text-black dark:bg-black dark:text-[#bb86fc] font-bold shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                className=" p-2 text-black dark:bg-black dark:text-[#bb86fc] font-bold shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
               >
                 {user ? (
                   <>
@@ -181,39 +202,15 @@ const Header = () => {
                   </>
                 )}
               </ul>{" "}
+              
             </div>
-            <label className="swap hidden  lg:inline-flex swap-rotate mt-2">
+             <label className="swap hidden  lg:inline-flex swap-rotate  mr-4">
               <input onClick={handleThemeSwitch} className="hidden" type="checkbox" />
               <BsSunFill className="swap-on fill-current text-yellow-500 text-4xl " />
               <BsMoonFill className="swap-off fill-current -ml-7 text-slate-500 text-4xl" />
             </label>
-          </div>
-
-          <button
-            variant="text"
-            className="  h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-            onClick={() => setOpenNav(!openNav)}
-          >
-            {openNav ? (
-              <BsChevronUp className="text-3xl text-black dark:text-[#bb86fc]" />
-            ) : (
-              <BiMenu className="text-3xl text-black  dark:text-[#bb86fc]" />
-            )}
-          </button>
-        </div>
-
-        <MobileNav open={openNav}>
-          <div>{navList}</div>
-
-          <div className="flex">
-            <label className="swap swap-rotate mr-5 my-2">
-              <input onClick={handleThemeSwitch} className="hidden" type="checkbox" />
-              <BsSunFill className="swap-on fill-current text-yellow-500 text-4xl" />
-              <BsMoonFill className="swap-off fill-current text-slate-500 text-4xl" />
-            </label>
-          </div>
-        </MobileNav>
-      </Navbar>
+  </div>
+</div>
     </div>
   );
 };
