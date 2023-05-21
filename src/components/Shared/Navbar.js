@@ -51,80 +51,99 @@ const Navbar = () => {
 
   return (
     <div>
-      {/* <!-- component --> */}
-      <nav className="flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700">
-        {/* Nav Logo */}
-        <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
-          <div className="flex items-center flex-shrink-0 text-gray-800 mr-16">
-            <span className="font-semibold text-xl tracking-tight">My Navbar</span>
+       <Navbar className="w-full border-none  bg-[#04516B] dark:bg-black dark:text-[#bb86fc] shadow-lg dark:border-0 max-w-screen-2xl py-6 px-4 rounded-none lg:px-8 lg:py-3">
+        <div className="w-full container flex px-10 items-center max-w-screen-2xl mx-auto justify-between text-blue-gray-900">
+          <Link to={"/"}>
+            {theme === "dark" ? (
+              <img className="w-32 lg:w-48" src={darkLogo} alt="darkLogo" />
+            ) : (
+              <img className="w-32 lg:w-48" src={darkLogo} alt="logo" />
+            )}
+          </Link>
+
+          <div className="hidden lg:block">{navList}</div>
+
+          <div className="flex justify-center gap-9 items-center">
+            <div className="dropdown dropdown-end  hidden lg:block">
+              {/* {user?.uid && ( */}
+              <label tabIndex={0} className=" cursor-pointer">
+                <div className="avatar mt-3 ">
+                  <div className="w-12 rounded-full ring  ">
+                    {user ? (
+                      <img alt="userImage" src={user?.photoURL} />
+                    ) : (
+                      <img
+                        alt="userImage"
+                        // src="https://png.pngitem.com/pimgs/s/44-446384_north-carolina-tar-heels-duke-blue-devils.png"
+                        src="https://static.vecteezy.com/system/resources/previews/007/319/933/original/black-avatar-person-icons-user-profile-icon-vector.jpg"
+                      />
+                    )}
+                  </div>
+                </div>
+              </label>
+              {/* )} */}
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 text-black dark:bg-black dark:text-[#bb86fc] font-bold shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                {user ? (
+                  <>
+                    <li>
+                      <Link to="/dashboard" className="justify-between">
+                        {user?.displayName}
+                      </Link>
+                    </li>
+
+                    <li>
+                      <button className="text-red-600" onClick={handleLogOut}>
+                        Logout
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link to="/authentication/login">Login</Link>
+                    </li>
+                    <li>
+                      <Link to="/authentication/signup">Signup</Link>
+                    </li>
+                  </>
+                )}
+              </ul>{" "}
+            </div>
+            <label className="swap hidden  lg:inline-flex swap-rotate mt-2">
+              <input onClick={handleThemeSwitch} className="hidden" type="checkbox" />
+              <BsSunFill className="swap-on fill-current text-yellow-500 text-4xl " />
+              <BsMoonFill className="swap-off fill-current -ml-7 text-slate-500 text-4xl" />
+            </label>
           </div>
-          <div className="block lg:hidden ">
-            <button
-              id="nav"
-              className="flex items-center px-3 py-2 border-2 rounded text-blue-700 border-blue-700 hover:text-blue-700 hover:border-blue-700"
-            >
-              <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <title>Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-            </button>
-          </div>
+
+          <button
+            variant="text"
+            className="  h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+            onClick={() => setOpenNav(!openNav)}
+          >
+            {openNav ? (
+              <BsChevronUp className="text-3xl text-black dark:text-[#bb86fc]" />
+            ) : (
+              <BiMenu className="text-3xl text-black  dark:text-[#bb86fc]" />
+            )}
+          </button>
         </div>
 
-        {/* Nav Menu */}
-        <div className="flex justify-between">
-          <div className="text-md font-bold text-blue-700 lg:flex-grow">
-            <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"
-            >
-              Menu 1
-            </a>
-            <a
-              href="#responsive-header"
-              className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"
-            >
-              Menu 2
-            </a>
-            <a
-              href="#responsive-header"
-              className="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"
-            >
-              Menu 3
-            </a>
-          </div>
-          {/* <!-- Input field --> */}
-          <div className="relative mx-4 text-gray-600 lg:block hidden">
-            <a href="#searchBox" type="submit" className="absolute right-0 top-0 mt-3 mr-2">
-              <BsSearch />
-            </a>
-          </div>
-          {/* {showModal && (
-                <SearchResultDisplayModal 
-                filteredData={filteredData} onClose={handleModalClose} />
-            )} */}
-          <div className="flex ">
-            {/* <a href="#"
-                   className="block text-md px-4 py-2 rounded text-blue-700 ml-2 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0">Sign
-                    in</a> */}
-            <Link
-              to=""
-              className="block text-md px-4 py-2 rounded text-blue-700 ml-2 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0"
-            >
-              Login
-            </Link>
-            <Link
-              to=""
-              className=" block text-md px-4  ml-2 py-2 rounded text-blue-700 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0"
-            >
-              Signup
-            </Link>
+        <MobileNav open={openNav}>
+          <div>{navList}</div>
 
-            {/* <a href="#"
-                   className=" block text-md px-4  ml-2 py-2 rounded text-blue-700 font-bold hover:text-white mt-4 hover:bg-blue-700 lg:mt-0">login</a> */}
+          <div className="flex">
+            <label className="swap swap-rotate mr-5 my-2">
+              <input onClick={handleThemeSwitch} className="hidden" type="checkbox" />
+              <BsSunFill className="swap-on fill-current text-yellow-500 text-4xl" />
+              <BsMoonFill className="swap-off fill-current text-slate-500 text-4xl" />
+            </label>
           </div>
-        </div>
-      </nav>
+        </MobileNav>
+      </Navbar>
     </div>
   );
 };

@@ -175,10 +175,7 @@ const Signup = () => {
                     value: 6,
                     message: "password must be 6 character long",
                   },
-                  pattern: {
-                    value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
-                    message: "Password must be strong",
-                  },
+                 
                 })}
                 placeholder="Password"
                 name="password"
