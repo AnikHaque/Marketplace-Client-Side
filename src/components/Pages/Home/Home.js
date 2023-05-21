@@ -16,7 +16,7 @@ import AboutOurs from "../About/AboutOurs";
 import FaqAnswer from "./FAQ/FaqAnswer";
 // import StudentPost from "./StudentPost";
 import GetStudentsPost from "./GetStudentsPost";
-import AllTeacherSlider from "./AllTeacherSlider";
+// import AllTeacherSlider from "./AllTeacherSlider";
 
 const Home = () => {
   const { user, loading, filteredData, setFilteredData } =
@@ -117,7 +117,7 @@ const Home = () => {
 
 
 
-      <AllTeacherSlider />
+      {/* <AllTeacherSlider /> */}
 
 
 
