@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCfGuWqHzhpUSpwBgDkmiaB3_dwDamfLl0",
-  authDomain: "edumate-6007c.firebaseapp.com",
-  projectId: "edumate-6007c",
-  storageBucket: "edumate-6007c.appspot.com",
-  messagingSenderId: "981192894710",
-  appId: "1:981192894710:web:4121654d190a9a5aabe4d7",
+  apiKey: "AIzaSyC1MkFVH7obOHSXSKsx-JBx1QnnJurqGEM",
+  authDomain: "edu-genius.firebaseapp.com",
+  projectId: "edu-genius",
+  storageBucket: "edu-genius.appspot.com",
+  messagingSenderId: "226792863475",
+  appId: "1:226792863475:web:8896a345df8cc41c946986"
 };
 
 // Initialize Firebase
