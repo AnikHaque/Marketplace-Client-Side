@@ -113,6 +113,18 @@ const Signup = () => {
       });
   };
 
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
   return (
     <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 md:my-12 lg:px-16 xl:px-32 text-[#1AA3D0] dark:text-[#00A99D]">
       <div className="flex items-center">
@@ -179,6 +191,8 @@ const Signup = () => {
                 })}
                 placeholder="Password"
                 name="password"
+                value={password}
+                onChange={handlePasswordChange}
                 className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
               />
               {errors.password && <p className="text-red-500">{errors.password.message}</p>}
@@ -196,6 +210,21 @@ const Signup = () => {
                 className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
               />
               {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.message}</p>}
+            </div>
+             <div className="mt-3 ms-1 text-sm">
+              <label className="flex m-2  dark:t#00A99D]">Confirm Password</label>
+              <input
+                type="text"
+                {...register("confirmpassword", {
+                  required: "Password is required",
+                })}
+                placeholder="Password"
+                name="password"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
+              />
+              {errors.password && <p className="text-red-500">{errors.password.message}</p>}
             </div>
           </div>
 
