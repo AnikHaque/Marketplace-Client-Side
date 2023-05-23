@@ -124,7 +124,7 @@ const Home = () => {
 
       {/* {user && <StudentPostBox />} */}
 
-      {/* <SubjectWiseTeachers /> */}
+      <SubjectWiseTeachers />
 
       
       {user?.uid &&
