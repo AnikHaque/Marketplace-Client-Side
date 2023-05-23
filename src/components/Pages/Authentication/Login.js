@@ -144,12 +144,12 @@ const Login = () => {
 
   return (
     <div>
-      <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-20 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 text-[#1AA3D0] dark:text-[#00A99D]">
+      <div className="grid max-w-screen-xl grid-cols-1 gap-8  mx-auto rounded-lg md:grid-cols-2  text-[#1AA3D0] dark:text-[#00A99D]">
         <div className="flex flex-col justify-between">
-          <div className="space-y-2">
-            <h2 id="title" className="text-4xl font-bold leading-tight lg:text-5xl">
+          <div className="">
+            {/* <h2 id="title" className="text-4xl font-bold leading-tight lg:text-5xl">
               Please Do it!
-            </h2>
+            </h2> */}
             {/* <div className="hidden lg:flex justify-center">
               <ReCAPTCHA
                 sitekey="6LfZE2glAAAAACGKH4fqAYxMk2cMqyPFihFIAo5C"

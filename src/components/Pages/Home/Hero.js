@@ -14,7 +14,7 @@ const Hero = () => {
           
           {/* TODO: Right side card */}
             <div role="contentinfo" className="w-full p-9 pt-5 text-black  bg-transparent rounded-lg lg:w-1/2 h-full">
-              <p tabIndex="0" className=" text-xl font-semibold  text-blue-600 uppercase">
+              <p tabIndex="0" className=" text-5xl font-semibold  text-blue-600 uppercase">
                 Let's find
               </p>
               <TypeAnimation
@@ -36,9 +36,9 @@ const Hero = () => {
               </p>
               <Link to="/">
                 <button
-                  className="bg-gray-700 mt-2 mr-4 px-3 py-3 md:px-8 md:py-[8px] text-white rounded p-1 items-center justify-center"
+                  className="bg-gradient-to-r from-[#045DE9] to-[#09C6F9] mt-2 mr-4 px-3 py-3 md:px-8 md:py-[8px] text-white rounded p-1 items-center justify-center"
                 >
-                 Hello
+                 Get Started
                 </button>
               </Link>
 
@@ -48,7 +48,7 @@ const Hero = () => {
 
 
             {/* ---------pic--------- */}
-            <div className="w-full lg:w-1/2 h-full lg:pr-10 xl:pr-0">
+            <div className="lg:w-1/2 lg:pr-10 xl:pr-0">
               <img className="mx-auto" src={bannerPic} alt="img" />
             </div>
           </div>

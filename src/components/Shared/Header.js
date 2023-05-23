@@ -121,7 +121,7 @@ const Header = () => {
 
   return (
     <div>
-    <div className="navbar bg-[#19a3ce]">
+    <div className="navbar bg-gradient-to-r from-[#009FFD] to-[#2A2A72]">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -142,7 +142,7 @@ const Header = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <img src="https://i.ibb.co/Bz8QR2F/channels4-profile-removebg-preview.png" className="w-20"></img>
+    <img src="https://i.ibb.co/Bz8QR2F/channels4-profile-removebg-preview.png" alt="" className="w-16"></img>
   </div>
   <div className="ml-[-100px] hidden lg:flex">
     <ul className="menu menu-horizontal ">
