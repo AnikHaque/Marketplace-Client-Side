@@ -2,21 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import SubjectWiseTeachers from "./SubjectWiseTeachers";
 import ContactUs from "./ContactUs";
 import Reviews from "./Reviews";
-import BeATeacher from "./BeATeacher";
 import Loader from "../../Shared/Loader";
 import { AuthContext } from "../../Context/AuthProvider";
 import Hero from "./Hero";
 import Sponsors from "./Sponsors";
-import GetReview from "./GetReview";
 import SearchQuery from "./SearchQuery";
 import Lottie from "lottie-react";
 import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
 import AboutOurs from "../About/AboutOurs";
 import FaqAnswer from "./FAQ/FaqAnswer";
-// import StudentPost from "./StudentPost";
 import GetStudentsPost from "./GetStudentsPost";
 import GoToTop from "./GoTotop";
-// import AllTeacherSlider from "./AllTeacherSlider";
+
 
 const Home = () => {
   const { user, loading, filteredData, setFilteredData } =
@@ -141,11 +138,11 @@ const Home = () => {
         </div>
       )}
 
-      <GetReview />
+      {/* <GetReview /> */}
 
-      <div id="beATeacher">
+      {/* <div id="beATeacher">
         <BeATeacher />
-      </div>
+      </div> */}
 
       <AboutOurs />
 
