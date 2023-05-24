@@ -110,7 +110,7 @@ const Navbar = () => {
                     </li>
                   </>
                 )}
-              </ul>{" "}
+              </ul>{" "}z
             </div>
             <label className="swap hidden  lg:inline-flex swap-rotate mt-2">
               <input onClick={handleThemeSwitch} className="hidden" type="checkbox" />

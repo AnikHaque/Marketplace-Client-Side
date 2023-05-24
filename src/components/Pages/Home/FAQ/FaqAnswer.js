@@ -1,110 +1,77 @@
-import React from "react";
-import Lottie from "lottie-react";
-import FaqAnimation from "../../../Assets/Animation/faq.json";
-import { motion } from "framer-motion";
+import React from 'react';
 
 const FaqAnswer = () => {
-  return (
-    <section className="mt-40 dark:text-[#fff]">
-      <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 px-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ translateY: -100, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 15 }}
-      >
-        <div className="">
-          <div className="mb-8 h-[38vw] w-4/5">
-            <Lottie animationData={FaqAnimation} loop={true}></Lottie>
-          </div>
-
-          <p className="text-start mt-32 lg:mt-0">
-            We have listed here the answers to some of your common questions. We request you to read this list once
-            before asking questions. Then you don't have to wait for our reply and save your precious time.
-          </p>
+    return (
+       <div className='bg-gradient-to-r from-[#009FFD] to-[#045DE9] ml-9 mr-9 mt-20 mb-20 p-20 rounded-lg'>
+        <h1 className='text-center text-3xl font-bold mb-9 text-[white]'>Q&A</h1>
+         <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 px-7 gap-4  '>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                What can I sell?
+                </div>
+                <div className="collapse-content">
+                    <p>Be creative! You can offer any service you wish as long as it's legal and complies with our terms. There are over 200 categories you can browse to get ideas.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                What can I sell?
+                </div>
+                <div className="collapse-content">
+                    <p>Be creative! You can offer any service you wish as long as it's legal and complies with our terms. There are over 200 categories you can browse to get ideas.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                What can I sell?
+                </div>
+                <div className="collapse-content">
+                    <p>Be creative! You can offer any service you wish as long as it's legal and complies with our terms. There are over 200 categories you can browse to get ideas.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                How much money can I make?
+                </div>
+                <div className="collapse-content">
+                    <p>It's totally up to you. You can work as much as you want. Many sellers work on Fiverr full time and some keep their 9-5 job while using Fiverr to make extra money.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                How much does it cost
+                </div>
+                <div className="collapse-content">
+                    <p>It's free to join Fiverr. There is no subscription required or fees to list your services. You keep 80% of each transaction.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                How much time will I need to invest?
+                </div>
+                <div className="collapse-content">
+                    <p>It's very flexible. You need to put in some time and effort in the beginning to learn the marketplace and then you can decide for yourself what amount of work you want to do.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                How do I price my service?
+                </div>
+                <div className="collapse-content">
+                    <p>With Gig Packages, you set your pricing anywhere from $5 - $995 and offer three versions of your service at three different prices.</p>
+                </div>
+            </div>
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                <div className="collapse-title text-xl font-bold">
+                How do I get paid?
+                </div>
+                <div className="collapse-content">
+                    <p>Once you complete a buyer's order, the money is transferred to your account. No need to chase clients for payments and wait 60 or 90 days for a check.</p>
+                </div>
+            </div>
         </div>
-
-        <div className="">
-          <h2 className="text-start mb-8 text-4xl font-bold mt-8">Frequently asked questions</h2>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box mb-5 ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              How do I access a Edumate?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">
-                You can access a fitness tracking web application by logging into the application's website on your
-                computer or mobile device with an internet connection.
-              </p>
-            </div>
-          </div>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box mb-5 ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              Who uses Edumate?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">
-                Edumate are used by both teacher and student who want to monitor their tution activity.
-              </p>
-            </div>
-          </div>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box mb-5 ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              Why you use Edumate?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">
-                |Edumate can help you keep track of your progress, set and achieve educational goals
-              </p>
-            </div>
-          </div>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box mb-5 ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              How can it help you?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">Edumate is a tution searching website that help you to search a tution.</p>
-            </div>
-          </div>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box mb-5 ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              How do you contact with us?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">You can contact with us by your email.</p>
-            </div>
-          </div>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box mb-5 ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              How can you get support?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">
-                Our support system is very good. We can not copromise with any support. You can get any support in our
-                team members.
-              </p>
-            </div>
-          </div>
-
-          <div tabIndex={0} className="collapse collapse-arrow border border-base-300  rounded-box ">
-            <div className="collapse-title text-xl font-medium bg-gradient-to-r from-green-400 to-teal-500 hover:from-pink-500 hover:to-yellow-500 ...">
-              Who can get our certificate?
-            </div>
-            <div className="collapse-content dark:text-[#000] bg-gradient-to-r from-green-300 to-teal-300 ...">
-              <p className="text-start">
-                Only teachers can get certificate. To get certificate you need to perticifate our exam and must be get
-                above 80% mark. Otherwise we cant not consider you for get a certificate.
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </section>
-  );
+       </div>
+    );
 };
 
 export default FaqAnswer;

@@ -26,7 +26,7 @@ const Contributors = () => {
                       <div className="relative mb-12 w-full max-w-[310px] md:mr-12 md:mb-0 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] 2xl:mr-16">
                         <img
                           src="https://cdn.tailgrids.com/2.0/image/marketing/images/testimonials/testimonial-01/image-01.jpg"
-                          alt="image"
+                          alt=""
                           className="w-full"
                         />
                         <span className="absolute -top-6 -left-6 z-[-1] hidden sm:block">
@@ -339,7 +339,7 @@ const Contributors = () => {
                       <div className="relative mb-12 w-full max-w-[310px] md:mr-12 md:mb-0 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] 2xl:mr-16">
                         <img
                           src="https://cdn.tailgrids.com/2.0/image/marketing/images/testimonials/testimonial-01/image-01.jpg"
-                          alt="image"
+                          alt=""
                           className="w-full"
                         />
                         <span className="absolute -top-6 -left-6 z-[-1] hidden sm:block">
@@ -651,7 +651,7 @@ const Contributors = () => {
                       <div className="relative mb-12 w-full max-w-[310px] md:mr-12 md:mb-0 md:max-w-[250px] lg:mr-14 lg:max-w-[280px] 2xl:mr-16">
                         <img
                           src="https://cdn.tailgrids.com/2.0/image/marketing/images/testimonials/testimonial-01/image-01.jpg"
-                          alt="image"
+                          alt=""
                           className="w-full"
                         />
 

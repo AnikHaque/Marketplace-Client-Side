@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import SubjectWiseTeachers from "./SubjectWiseTeachers";
 import ContactUs from "./ContactUs";
-import Reviews from "./Reviews";
 import Loader from "../../Shared/Loader";
 import { AuthContext } from "../../Context/AuthProvider";
 import Hero from "./Hero";
-import Sponsors from "./Sponsors";
 import SearchQuery from "./SearchQuery";
-import Lottie from "lottie-react";
-import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
 import AboutOurs from "../About/AboutOurs";
 import FaqAnswer from "./FAQ/FaqAnswer";
-import GetStudentsPost from "./GetStudentsPost";
 import GoToTop from "./GoTotop";
+
+// Third Party
+import Lottie from "lottie-react";
+import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
+import Sponsor from "./Sponsor/Sponsor";
 
 
 const Home = () => {
@@ -111,32 +111,25 @@ const Home = () => {
         </div>
       </div>
 
-
-
+      <SubjectWiseTeachers />
+      <AboutOurs />
+      <FaqAnswer />
+      <Sponsor />
 
       {/* <AllTeacherSlider /> */}
-
-
-
       {/* {user && <StudentPostBox />} */}
-
-      <SubjectWiseTeachers />
-
       
-      {user?.uid &&
+      {/* {user?.uid &&
       <div id="studentsPost">
       <GetStudentsPost />
       </div>
       }
 
-
-      
-
       {user?.uid && (
         <div id="review">
           <Reviews />
         </div>
-      )}
+      )} */}
 
       {/* <GetReview /> */}
 
@@ -144,15 +137,7 @@ const Home = () => {
         <BeATeacher />
       </div> */}
 
-      <AboutOurs />
-
-
       {/* <StudentPost /> */}
-      <FaqAnswer />
-
-      <div className="py-10">
-        <Sponsors />
-      </div>
 
       {user?.uid && (
         <div id="contact">
