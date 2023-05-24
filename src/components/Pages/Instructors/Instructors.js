@@ -142,14 +142,15 @@ return (
          })}
       </div>
       ) : (
-      <div className="pt-5 mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5 max-w-screen-xl">
+      <div className="lg:p-9 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-screen-xl">
          {allInstructor?.data?.map((instructor, idx) => {
          return (
          <div key={idx} className="">
             <div className="card w- bg-base-100 shadow-xl">
-               <figure><img className="h-[220px] w-[300px]" src={instructor?.image} alt="Shoes" /></figure>
+               <figure><img className="h-[290px] w-[500px]" src={instructor?.image} alt="Shoes" /></figure>
                <div className="card-body">
                   <div className="">
+                     <div className="flex gap-9">
                      <h5 className="text-[#1AA3D0] text-md dark:text-[#00A99D]  font-bold text-md flex tracking-tight">
                         <FaBookReader className="mt-1 text-sm  text-black ml-1 mr-3" />
                         {" "}
@@ -159,6 +160,7 @@ return (
                         <BsFillPersonFill className="mt-1 text-md mr-2 gap-2" />
                         {instructor?.name}
                      </p>
+                     </div>
                      <p className="font-bold text-md  mb-3 flex   text-gray-800">
                         <BsHourglassSplit className="mt-1 text-lg mr-2" />
                         {" "}

@@ -8,20 +8,19 @@ import Lottie from "lottie-react";
 // Normal Import 
 import SubjectWiseTeachers from "./SubjectWiseTeachers";
 import ContactUs from "./ContactUs";
-import Reviews from "./Reviews";
 import Loader from "../../Shared/Loader";
 import Hero from "./Hero";
-import Sponsors from "./Sponsors";
 import SearchQuery from "./SearchQuery";
 import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
 import AboutOurs from "../About/AboutOurs";
 import FaqAnswer from "./FAQ/FaqAnswer";
-import GetStudentsPost from "./GetStudentsPost";
 import GoToTop from "./GoTotop";
 
 // Normal CSS 
 
 // Custom CSS 
+import Sponsor from "./Sponsor/Sponsor";
+
 
 const Home = () => {
   // fIREBASE 
@@ -118,16 +117,15 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <AllTeacherSlider /> */}
-
-
-
-      {/* {user && <StudentPostBox />} */}
-
       <SubjectWiseTeachers />
+      <AboutOurs />
+      <FaqAnswer />
+      <Sponsor />
 
+      {/* <AllTeacherSlider /> */}
+      {/* {user && <StudentPostBox />} */}
       
-      {user?.uid &&
+      {/* {user?.uid &&
       <div id="studentsPost">
       <GetStudentsPost />
       </div>
@@ -137,7 +135,7 @@ const Home = () => {
         <div id="review">
           <Reviews />
         </div>
-      )}
+      )} */}
 
       {/* <GetReview /> */}
 
@@ -145,15 +143,7 @@ const Home = () => {
         <BeATeacher />
       </div> */}
 
-      <AboutOurs />
-
-
       {/* <StudentPost /> */}
-      <FaqAnswer />
-
-      <div className="py-10">
-        <Sponsors />
-      </div>
 
       {user?.uid && (
         <div id="contact">
