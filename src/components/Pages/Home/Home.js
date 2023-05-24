@@ -22,6 +22,7 @@ import Sponsor from "./Sponsor/Sponsor";
 import Testimonial from "../Testimonials/Testimonial";
 import Courses from "../Courses/Courses";
 import Hero from "./Hero/Hero";
+import NewsLetter from "./NewsLetter/NewsLetter";
 
 
 const Home = () => {
@@ -141,9 +142,9 @@ const Home = () => {
       )} */}
 
 <Testimonial></Testimonial>
-
+<NewsLetter></NewsLetter>
       {/* <div id="beATeacher">
-        <BeATeacher />
+       
       </div> */}
 
       {/* <StudentPost /> */}
