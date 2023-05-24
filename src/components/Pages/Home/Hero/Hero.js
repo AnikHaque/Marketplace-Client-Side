@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <div className="section mt-[-30px]" id="home">
       <div className="md:flex items-center justify-center">
-        <div>
+        <div className="">
           <div className="font-bold text-xs text-Teal mb-4">
             {" "}
             your e-learning partner
@@ -37,7 +37,7 @@ const Hero = () => {
             officia sit vitae quo, eum similique?
           </p>
           <div className="mt-6">
-            <button className="px-6 py-3 font-bold text-white bg-Teal rounded-lg mr-4 text-sm">
+            <button className="px-6 py-3 font-bold text-white bg-blue-500 rounded-lg mr-4 text-sm">
               Get Started
             </button>
             <button className="px-6 py-3 font-bold border border-solid border-gray rounded-lg text-sm">
