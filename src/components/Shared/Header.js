@@ -1,16 +1,10 @@
 import React, { useContext } from "react";
-import { Navbar, MobileNav } from "@material-tailwind/react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { BiMenu } from "react-icons/bi";
-import { BsChevronUp, BsMoonFill, BsSunFill } from "react-icons/bs";
+
+import {  BsMoonFill, BsSunFill } from "react-icons/bs";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-toastify";
-
-// import logo from "../../Assets/logo.png";
-// import darkLogo from "../../Assets/dark-Logo.png";
-// import logo from "../Assets/Logos/EDU_LOGO.png";
-import darkLogo from "../Assets/Logos/EDU_Dark_Logo.png";
 
 const Header = () => {
   const { user, logUser, logOut, theme, setTheme } = useContext(AuthContext);

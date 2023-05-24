@@ -21,6 +21,7 @@ import GoToTop from "./GoTotop";
 // Custom CSS 
 import Sponsor from "./Sponsor/Sponsor";
 import Testimonial from "../Testimonials/Testimonial";
+import Courses from "../Courses/Courses";
 
 
 const Home = () => {
@@ -120,6 +121,7 @@ const Home = () => {
 
       <SubjectWiseTeachers />
       <AboutOurs />
+      <Courses></Courses>
       <FaqAnswer />
       <Sponsor />
 
