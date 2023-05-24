@@ -20,6 +20,7 @@ import GoToTop from "./GoTotop";
 
 // Custom CSS 
 import Sponsor from "./Sponsor/Sponsor";
+import Testimonial from "../Testimonials/Testimonial";
 
 
 const Home = () => {
@@ -137,7 +138,7 @@ const Home = () => {
         </div>
       )} */}
 
-      {/* <GetReview /> */}
+<Testimonial></Testimonial>
 
       {/* <div id="beATeacher">
         <BeATeacher />

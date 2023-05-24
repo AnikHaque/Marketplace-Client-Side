@@ -3,6 +3,8 @@ import { RouterProvider } from "react-router-dom";
 import router from "./components/Routes/Route";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function App() {
   return (
