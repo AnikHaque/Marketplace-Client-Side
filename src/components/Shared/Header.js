@@ -115,7 +115,7 @@ const Header = () => {
 
   return (
     <div>
-    <div className="navbar bg-gradient-to-r from-[#009FFD] to-[#2A2A72]">
+    <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -140,12 +140,12 @@ const Header = () => {
   </div>
   <div className="ml-[-100px] hidden lg:flex">
     <ul className="menu menu-horizontal ">
-      <li className="text-white font-bold"><Link>Home</Link></li>
-      <li className="text-white font-bold"><Link>About</Link></li>
-      <li className="text-white font-bold"><Link>Dashboard</Link></li>
-      <li className="text-white font-bold"><Link>Courses</Link></li>
-      <li className="text-white font-bold"><Link>Blogs</Link></li>
-      <li className="text-white font-bold"><Link>Contact</Link></li>
+      <li className="text-black font-bold"><Link>Home</Link></li>
+      <li className="text-black font-bold"><Link>About</Link></li>
+      <li className="text-black font-bold"><Link>Dashboard</Link></li>
+      <li className="text-black font-bold"><Link>Courses</Link></li>
+      <li className="text-black font-bold"><Link>Blogs</Link></li>
+      <li className="text-black font-bold"><Link>Contact</Link></li>
     </ul>
   </div>
   <div className="navbar-end">

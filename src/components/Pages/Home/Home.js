@@ -9,7 +9,6 @@ import Lottie from "lottie-react";
 import SubjectWiseTeachers from "./SubjectWiseTeachers";
 import ContactUs from "./ContactUs";
 import Loader from "../../Shared/Loader";
-import Hero from "./Hero";
 import SearchQuery from "./SearchQuery";
 import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
 import AboutOurs from "../About/AboutOurs";
@@ -22,6 +21,7 @@ import GoToTop from "./GoTotop";
 import Sponsor from "./Sponsor/Sponsor";
 import Testimonial from "../Testimonials/Testimonial";
 import Courses from "../Courses/Courses";
+import Hero from "./Hero/Hero";
 
 
 const Home = () => {
@@ -65,7 +65,7 @@ const Home = () => {
 
   return (
     <div>
-      <Hero />
+    <Hero></Hero>
 
       {/* tutor Search Field*/}
       <div className="my-5 text-2xl font-semibold mx-10">
