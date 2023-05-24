@@ -1,24 +1,33 @@
+// configuration 
 import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
+
+// 3rd party packages 
+import Lottie from "lottie-react";
+
+// Normal Import 
 import SubjectWiseTeachers from "./SubjectWiseTeachers";
 import ContactUs from "./ContactUs";
 import Loader from "../../Shared/Loader";
-import { AuthContext } from "../../Context/AuthProvider";
 import Hero from "./Hero";
 import SearchQuery from "./SearchQuery";
+import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
 import AboutOurs from "../About/AboutOurs";
 import FaqAnswer from "./FAQ/FaqAnswer";
 import GoToTop from "./GoTotop";
 
-// Third Party
-import Lottie from "lottie-react";
-import SearchAnimation from "../../Assets/Animation/SearchAnimation.json";
+// Normal CSS 
+
+// Custom CSS 
 import Sponsor from "./Sponsor/Sponsor";
 
 
 const Home = () => {
+  // fIREBASE 
   const { user, loading, filteredData, setFilteredData } =
     useContext(AuthContext);
 
+    // React 
   const [data, setData] = useState([]);
 
   const [hasSearched, setHasSearched] = useState(false);
@@ -47,9 +56,6 @@ const Home = () => {
   }
 
   console.log(filteredData);
-
-
-
 
   if (loading) {
     return <Loader />;
