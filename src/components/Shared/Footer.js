@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import logo from "../Assets/Logos/EDU_LOGO.png";
+// import logo from "../Assets/Logos/EDU_LOGO.png";?
 import darkLogo from "../Assets/Logos/EDU_Dark_Logo.png";
 import { AuthContext } from "../Context/AuthProvider";
 
@@ -7,7 +7,7 @@ const Footer = () => {
   const { theme } = useContext(AuthContext);
   return (
     <div>
-      <footer aria-label="Site Footer" className="text-black dark:text-[#bb86fc]" style={{ background: "#04516B" }}>
+      <footer aria-label="Site Footer" className="text-black dark:text-[#bb86fc] bg-gradient-to-r from-[#009FFD] to-[#2A2A72]" >
         <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
