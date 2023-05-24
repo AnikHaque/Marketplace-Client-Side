@@ -8,10 +8,11 @@ import { toast } from "react-toastify";
 // import image from "../../Assets/login.jpg";
 
 const Signup = () => {
-  const {
+ const {
     register,
     handleSubmit,
     formState: { errors },
+    watch, // Add watch function from react-hook-form
   } = useForm();
 
   const { createUser, updateUser } = useContext(AuthContext);
@@ -20,11 +21,9 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  //! from .env.local file====>
   const imgHostKey = process.env.REACT_APP_Imgbb_key;
-  console.log(imgHostKey);
 
-  // const [createdUserEmail, setCreatedUserEmail] = useState('')
+  const password = watch("password"); // Get the value of the password field
 
   const handleSignUp = (data) => {
     const name = data.name;
@@ -38,17 +37,9 @@ const Signup = () => {
 
     createUser(email, password)
       .then((result) => {
-        // const user = result.user;
-
-        // console.log(image)
-
-        //! ==========< Image Hosting >==========
-
         const formData = new FormData();
 
         formData.append("image", image[0]);
-
-        // console.log(formData)
 
         const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
 
@@ -63,7 +54,6 @@ const Signup = () => {
             const photoURL = imgData?.data?.url;
 
             updateUserDetails(name, photoURL);
-            // saveUsers(name, email, photoURL);
 
             if (imgData.success) {
               const addedUser = {
@@ -74,7 +64,6 @@ const Signup = () => {
                 image: imgData.data.url,
               };
 
-              //! Save User info to the database....
               fetch("https://edumate-second-server.vercel.app/api/v1/user", {
                 method: "POST",
                 headers: {
@@ -95,7 +84,6 @@ const Signup = () => {
       .catch((error) => {
         console.error(error);
         setSignUpError(error.message);
-        // setPasswordError((error.message).slice(22,36));
         if (error) {
           toast.error(error.message.slice(22, 42));
         }
@@ -112,18 +100,7 @@ const Signup = () => {
         console.error(error);
       });
   };
-
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
+    
 
   return (
     <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 md:my-12 lg:px-16 xl:px-32 text-[#1AA3D0] dark:text-[#00A99D]">
@@ -191,13 +168,25 @@ const Signup = () => {
                 })}
                 placeholder="Password"
                 name="password"
-                value={password}
-                onChange={handlePasswordChange}
                 className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
               />
               {errors.password && <p className="text-red-500">{errors.password.message}</p>}
             </div>
-
+<div className="mt-3 ms-1 text-sm">
+          <label className="flex m-2 dark:text-[#00A99D]">Confirm Password</label>
+          <input
+            type="password"
+            {...register("confirmPassword", {
+              required: "Confirm Password is required",
+              validate: (value) => value === password || "Passwords do not match",
+            })}
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2 border-[#1AA3D0] dark
+:border-none focus:outline-none focus:border-[#00A99D]"
+/>
+{errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
+</div>
             <div className="mt-3 ms-1 text-sm">
               <label className="flex m-2  dark:text-[#00A99D]">Phone number</label>
               <input
@@ -207,24 +196,9 @@ const Signup = () => {
                 })}
                 placeholder="Number"
                 name="phoneNumber"
-                className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
+                className="input input-bordered text-black w-96 px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
               />
               {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.message}</p>}
-            </div>
-             <div className="mt-3 ms-1 text-sm">
-              <label className="flex m-2  dark:t#00A99D]">Confirm Password</label>
-              <input
-                type="text"
-                {...register("confirmpassword", {
-                  required: "Password is required",
-                })}
-                placeholder="Password"
-                name="password"
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
-              />
-              {errors.password && <p className="text-red-500">{errors.password.message}</p>}
             </div>
           </div>
 
