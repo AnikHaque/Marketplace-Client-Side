@@ -1,3 +1,4 @@
+// Confoguration
 import React from 'react';
 
 const FaqAnswer = () => {

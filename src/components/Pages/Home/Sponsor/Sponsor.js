@@ -1,4 +1,6 @@
+// Configuration 
 import React from "react";
+// 3rd party packages 
 import { Link } from "react-router-dom";
 import "./Sponsor.css";
 
