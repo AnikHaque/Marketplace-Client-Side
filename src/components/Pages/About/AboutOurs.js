@@ -1,134 +1,69 @@
 import React from 'react';
+import CountUp from "react-countup";
+import teacher from "../../Assets/teacher.png"
+import student from "../../Assets/student.png"
+import user from "../../Assets/users.png"
+import course from "../../Assets/courses.png"
 
 const WorksPlan = () => {
     return (
         <section class="bg-gray-50 text-gray-500 mb-9">
-  <div
-    class=" max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8"
-  >
-    <div class="mx-auto max-w-lg text-center">
-      <h2 class="text-3xl text-blue-600 font-bold sm:text-4xl">How it Works</h2>
-    </div>
-
+  <div class=" max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
     <div class="mt-8 text-black grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-
-      <a
+      {/* 1st */}
+    <a
         class="block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10"
         href="/services/digital-campaigns"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-blue-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-gray-900"> Create a Gig</h2>
-
-        <p class="mt-1 text-sm text-gray-900">
-        YO
-        </p>
+        <img width="48" height="48" className='mx-auto' src={teacher} alt="training"/>
+            <h6 className="text-3xl mt-2 font-bold lg:text-4xl text-gray-800 xl:text-5xl">
+              <CountUp start={0} end={100} duration={200} delay={2}></CountUp>+
+            </h6>
+            <p className="text-sm text-gray-500 font-bold tracking-widest uppercase ">
+              Teachers
+            </p>
       </a>
+      
+      {/* 2nd */}
       <a
         class="block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10"
         href="/services/digital-campaigns"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-blue-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-gray-900"> Create a Gig</h2>
-
-        <p class="mt-1 text-sm text-gray-900">
-        YO 
-        </p>
+        <img width="38" height="38" className='mx-auto ' src={student} alt="training"/>
+            <h6 className="text-3xl mt-2 font-bold lg:text-4xl text-gray-800 xl:text-5xl">
+              <CountUp start={0} end={355} duration={200} delay={2}></CountUp>+
+            </h6>
+            <p className="text-sm text-gray-500 font-bold tracking-widest uppercase ">
+              Students
+            </p>
       </a>
 
+      {/* 3rd */}
       <a
         class="block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10"
         href="/services/digital-campaigns"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-blue-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-gray-900"> Deliver great work</h2>
-
-        <p class="mt-1 text-sm text-gray-900">
-        YO 
-        </p>
+        <img width="64" height="64" className='mx-auto' src={course} alt="training"/>
+            <h6 className="text-3xl font-bold lg:text-4xl text-gray-800 xl:text-5xl">
+                <CountUp start={0} end={57} duration={200} delay={2}></CountUp>+
+            </h6>
+            <p className="text-sm text-gray-500 font-bold tracking-widest uppercase ">
+              Courses
+            </p>
       </a>
 
+      {/* 4th */}
       <a
         class="block rounded-xl border border-gray-200 p-8 shadow-xl transition hover:border-blue-500/10 hover:shadow-blue-500/10"
         href="/services/digital-campaigns"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 text-blue-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M12 14l9-5-9-5-9 5 9 5z" />
-          <path
-            d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-          />
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-          />
-        </svg>
-
-        <h2 class="mt-4 text-xl font-bold text-gray-900">Get paid</h2>
-
-        <p class="mt-1 text-sm text-gray-900">
-        YO
-        </p>
+        <img width="54" height="54" className='mx-auto' src={user} alt="training"/>
+            <h6 className="text-3xl mt-2 font-bold lg:text-4xl text-gray-800 xl:text-5xl">
+                <CountUp start={0} end={1000} duration={200} delay={2}></CountUp>+
+            </h6>
+            <p className="text-sm text-gray-500 font-bold tracking-widest uppercase ">
+              Users
+            </p>
       </a>
     </div>
 
