@@ -6,8 +6,10 @@ import Loader from "../../Shared/Loader";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 
+
+
+
 const Instructors = () => {
-  
    const tableHeading = [
       { name: "Name", id: 1 },
       { name: "Phone", id: 2 },
@@ -149,8 +151,7 @@ return (
          );
          })}
       </div>
-      ) :
-       (
+      ) : (
       <div className="w-full px-8">
         <div className="relative flex flex-col w-full min-w-0 mb-0 break-words bg-white dark:bg-black border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
       
@@ -160,7 +161,7 @@ return (
                 
               <div className="overflow-x-auto w-full">
                 {allInstructor?.data?.map((instructor, idx) => {
-         
+         return (
          // <div key={idx} className="">
          //    <tbody>
          //    <tr>
@@ -241,7 +242,8 @@ return (
          //  </tr>
          //  </tbody>
             
-         // </div>   
+         // </div>
+         
   <table className="table w-full">
     {/* head */}
     <thead>
@@ -382,7 +384,7 @@ return (
     
   </table>
 
-      
+         );
          })}
          </div>  
                 
