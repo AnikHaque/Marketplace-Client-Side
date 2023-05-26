@@ -79,20 +79,9 @@ const DashBoard = () => {
               </li>
             )}
 
-            {logUser?.role === "Admin" && (
+            {logUser?.role === "Teacher" && (
               <>
-                <li className="">
-                  <Link to="/dashboard/all-Teachers">
-                    <GiTeacher />
-                    All Teacher
-                  </Link>
-                </li>
-                <li className="">
-                  <Link to="/dashboard/all-students">
-                    <FaUsers />
-                    All Students
-                  </Link>
-                </li>
+                
 
                 <li>
                   <Link to="/dashboard/tutor-test-question">
@@ -122,6 +111,18 @@ const DashBoard = () => {
                   <Link to="/dashboard/my-achievement-certificate">
                     <TbGiftCard />
                     my Achievement
+                  </Link>
+                </li>
+                <li className="">
+                  <Link to="/dashboard/all-Teachers">
+                    <GiTeacher />
+                    All Teacher
+                  </Link>
+                </li>
+                <li className="">
+                  <Link to="/dashboard/all-students">
+                    <FaUsers />
+                    All Students
                   </Link>
                 </li>
               </>

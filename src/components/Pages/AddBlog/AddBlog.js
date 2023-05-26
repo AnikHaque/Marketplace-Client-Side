@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { BsArrowRight } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -8,51 +9,21 @@ import BlogAnimation from "../../Assets/Animation/BlogAnimation.json";
 import Lottie from "lottie-react";
 
 const AddBlog = () => {
-  const { register, handleSubmit } = useForm();
-  const { user, logUser } = useContext(AuthContext);
-  const imgBBkEY = process.env.REACT_APP_Imgbb_key;
-  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm();
+  const { user } = useContext(AuthContext);
+  
+    const onSubmit = data => {
+        console.log(data);
+        axios.post('http://localhost:5000/blogs', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('Added Successfully');
+                    reset();
+                }
+            })
+    };
 
-  const addBlog = (data) => {
-    const img = data?.photo[0];
-    const formData = new FormData();
-    formData.append("image", img);
-
-    const url = `https://api.imgbb.com/1/upload?&key=${imgBBkEY}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData?.success) {
-          const blogDetails = {
-            authorName: user?.displayName,
-            authorEmail: user?.email,
-            authorRole: logUser?.role,
-            authorImage: user?.photoURL,
-            title: data?.title,
-            category: data?.category,
-            details: data?.details,
-            blogImage: imgData?.data?.url,
-          };
-
-          // console.log(blogDetails);
-
-          fetch(`https://edumate-second-server.vercel.app/api/v1/blogs`, {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(blogDetails),
-          })
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-          toast.success("Successfully added your blog");
-          navigate("/blog");
-        }
-      });
-  };
+  
 
   return (
     <div>
@@ -72,7 +43,7 @@ const AddBlog = () => {
           </div>
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 bg-blueGray-100  ">
             <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-              <form onSubmit={handleSubmit(addBlog)}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <h6 className="text-[#1AA3D0] dark:text-[#00A99D] text-lg  mt-3 mb-6 font-bold uppercase">
                   Blog Information
                 </h6>
@@ -149,7 +120,7 @@ const AddBlog = () => {
                       </label>
                       <input
                         {...register("photo")}
-                        type="file"
+                        type="text"
                         // required
                         className="input input-bordered w-full px-4 py-2 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                       />
