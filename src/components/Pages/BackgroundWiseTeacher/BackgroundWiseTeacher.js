@@ -1,10 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { FaBookReader } from "react-icons/fa";
-import { HiLocationMarker } from "react-icons/hi";
 import { AuthContext } from "../../Context/AuthProvider";
 import Loader from "../../Shared/Loader";
-import { BsHourglassSplit, BsFillPersonFill, BsArrowRightShort, BsArrowRight } from "react-icons/bs";
+import { BsHourglassSplit, BsFillPersonFill } from "react-icons/bs";
 
 const BackgroundWiseTeacher = () => {
   const Alldata = useLoaderData();
