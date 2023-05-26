@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-// import ProfileEditModal from "./ProfileEditModal";
 import { AuthContext } from "../../Context/AuthProvider";
+// import ProfileEditModal from "./ProfileEditModal";
 // import { Link } from "react-router-dom";
 // import { BsFillBookmarkStarFill } from 'react-icons/bs';
 // import MyAccess from './MyProfileTable';
-import DynamicLogo from '../../Assets/Images/premeium-award.png'
+import DynamicLogo from '../../Assets/Images/hero.png'
+import { Link } from "react-router-dom";
 
 const MyProfile = () => {
   const { user, logUser } = useContext(AuthContext);
@@ -28,8 +29,12 @@ const MyProfile = () => {
     <div className=" border text-gray-200 bg-gradient-to-r from-[#1AA3D0] to-[#00A99D] ... lg:p-20 m-10 w-3/4 mx-auto rounded-3xl border-none">
       <div>
         <div className="card">
-
-              <button className="btn btn-primary text-white font-bold rounded-md w-32">Edit Profile</button>
+              <Link
+              to={"/dashboard/edit-profile"}
+              className="btn bg-gradient-to-r from-[#045DE9] to-[#09C6F9] text-white font-bold rounded-md w-32" 
+              >
+                Edit Profile
+              </Link>
 
           <div className="flex justify-between lg:mb-[-65px] lg:mt-[55px]">
             <div>

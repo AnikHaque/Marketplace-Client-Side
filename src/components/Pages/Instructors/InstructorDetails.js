@@ -92,7 +92,7 @@ const InstructorDetails = () => {
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
               <img
                 alt="teacher"
-                className="lg:w-1/2 w-full object-cover  object-center rounded-full "
+                className="lg:w-1/2 w-full object-cover  object-center rounded-lg "
                 src={details?.data?.image}
               />
               <div className="lg:w-1/2 w-full space-y-2 lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -140,13 +140,9 @@ const InstructorDetails = () => {
                 <div className="flex justify-between">
                   <button
                     onClick={() => bookTeacher(details.data)}
-                    className="group relative inline-flex mt-5 items-center overflow-hidden border border-black bg-[#1AA3D0] dark:bg-[#00A99D] px-8 py-4 text-white focus:outline-none focus:ring active:bg-blue-500 rounded-full"
+                    className=" relative inline-flex mt-5 items-center overflow-hidden border border-black bg-gradient-to-r from-[#045DE9] to-[#09C6F9] dark:bg-gray-500 px-8 py-4 text-white focus:outline-none focus:ring active:bg-blue-500 rounded-xl"
                   >
-                    <span className="absolute right-0 translate-x-full transition-transform group-hover:-translate-x-4">
-                      <BsArrowRight />
-                    </span>
-
-                    <span className="text-sm font-bold  transition-all group-hover:mr-4">
+                    <span className="text-sm  font-bold  ">
                       Book Now
                     </span>
                   </button>
