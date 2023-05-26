@@ -29,22 +29,23 @@ const MyProfile = () => {
       <div>
         <div className="card">
 
+              <button className="btn btn-primary text-white font-bold rounded-md w-32">Edit Profile</button>
 
-          <div className="flex justify-between lg:mb-[-55px] lg:mt-[-55px]">
-            <div></div>
+          <div className="flex justify-between lg:mb-[-65px] lg:mt-[55px]">
+            <div>
+             
+            </div>
             <div>
               {data?.map((scoreData, idx) => 
               <img key={idx} className="w-24 rounded-full" src ={DynamicLogo} alt="" />
               )}
             </div>
           </div>
-
-
           
           <div className="grid grid-cols-1 p-10 md:grid-cols-4">
             <div className="col-span-1 flex justify-center">
               {user ? (
-                <img className=" w-40 h-40 m-5 rounded-full" src={user?.photoURL} alt="Album" />
+                <img className=" w-40 h-40 m-5 rounded-xl" src={user?.photoURL} alt="Album" />
               ) : (
                 <img
                   className=" w-40 h-40 m-5 rounded-full"
@@ -64,7 +65,7 @@ const MyProfile = () => {
 
 
                   {logUser?._id && (
-                    <p className="text-start font-bold text-small mb-2">
+                    <p className="text-start font-bold text-small mb-2 text-gray-700">
                       ID : <span className="  my-10"> WBC-{logUser?._id?.slice(16, -1)}</span>
                       {/* Slice from 16 to last character */}
                     </p>
@@ -73,43 +74,36 @@ const MyProfile = () => {
                   
                   <div>
                     {user?.displayName ? (
-                      <p className="text-start font-bold mb-2 ">
+                      <p className="text-start font-bold mb-2 text-gray-700">
                         Name : <span className="font-bold">{user?.displayName}</span>
                       </p>
                     ) : (
-                      <p className="text-start font-bold mb-2 ">
+                      <p className="text-start font-bold mb-2 text-gray-700">
                         Name : <span className="font-bold">New Guest</span>
                       </p>
                     )}
                   </div>
-                </div>
-                
+                </div> 
               </div>
-              
-
               <div>
                 {user?.email ? (
                   <>
-                    <p className="text-start  font-bold mb-2">
+                    <p className="text-start  font-bold mb-2 text-gray-700">
                       Email : <span className="font-bold">{user?.email}</span>
                     </p>
                     <div className="grid grid-cols-12">
                       {logUser?.role && (
-                        <p className="text-start col-span-10 font-serif font-semibold flex">Role : {logUser?.role}</p>
+                        <p className="text-start col-span-10 font-serif font-semibold flex text-gray-700">Role : {logUser?.role}</p>
                       )}
                     </div>
                   </>
                 ) : (
-                  <p className="text-start mb-2">
+                  <p className="text-start mb-2 text-gray-700">
                     Email : <span className="font-bold">guest@gmail.com</span>
                   </p>
                 )}
               </div>
             </div>
-
-
-
-
           </div>
         </div>
       </div>
