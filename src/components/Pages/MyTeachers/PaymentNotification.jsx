@@ -11,7 +11,7 @@ const PaymentNotification = () => {
   const transactionId = query.get("transactionId");
 
   useEffect(() => {
-    // fetch(`http://localhost:5000/orders/by-transaction-id/${transactionId}`)
+    // fetch(`https://edumate-second-server.vercel.app/api/v1/orders/by-transaction-id/${transactionId}`)
     fetch(
       `https://edumate-second-server.vercel.app/api/v1/payment/ssl-payment-notification/${transactionId}`
     )

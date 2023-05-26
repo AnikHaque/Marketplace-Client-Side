@@ -4,8 +4,8 @@ import { BsArrowRight } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
-import BlogAnimation from "../../Assets/Animation/BlogAnimation.json";
-import Lottie from "lottie-react";
+// import BlogAnimation from "../../Assets/Animation/BlogAnimation.json";
+// import Lottie from "lottie-react";
 
 const AddBlog = () => {
   const { register, handleSubmit } = useForm();
@@ -39,7 +39,7 @@ const AddBlog = () => {
 
           // console.log(blogDetails);
 
-          fetch(`https://edumate-second-server.vercel.app/api/v1/blogs`, {
+          fetch(`http://localhost:5000/blogs`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -56,8 +56,8 @@ const AddBlog = () => {
 
   return (
     <div>
-      <section className=" py-1 mt-8 bg-blueGray-50  dark:bg-black dark:text-black">
-        <div
+      <section className=" py-1 mt-8 bg-blueGray-50  dark:text-black">
+        {/* <div
           id="title"
           className="text-4xl font-extrabold text-[#1AA3D0] dark:text-[#00A99D]"
         >
@@ -65,12 +65,12 @@ const AddBlog = () => {
         </div>
         <p className="mt-3 dark:text-[#ffffff]">
           Contribute to our community with your blog post
-        </p>
-        <div className="grid grid-cols-1 mt-10 px-4 mx-16 border shadow-lg shadow-[#1AA3D0] rounded-md ">
-          <div className="flex justify-center items-center">
+        </p> */}
+        <div className="grid grid-cols-1 mt-10 px-4 mx-16 border shadow-lg bg-blue-100 rounded-md ">
+          {/* <div className="flex justify-center items-center">
             <Lottie animationData={BlogAnimation} loop={true}></Lottie>
-          </div>
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 bg-blueGray-100  ">
+          </div> */}
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6  ">
             <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
               <form onSubmit={handleSubmit(addBlog)}>
                 <h6 className="text-[#1AA3D0] dark:text-[#00A99D] text-lg  mt-3 mb-6 font-bold uppercase">
@@ -87,7 +87,7 @@ const AddBlog = () => {
                       defaultValue={user?.displayName}
                       readOnly
                       required
-                      className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                      className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                     />
                   </div>
 
@@ -101,7 +101,7 @@ const AddBlog = () => {
                       readOnly
                       required
                       defaultValue={user?.email}
-                      className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                      className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                     />
                   </div>
                 </div>
@@ -117,7 +117,7 @@ const AddBlog = () => {
                         type="text"
                         {...register("category")}
                         required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                       />
                     </div>
                   </div>
@@ -132,7 +132,7 @@ const AddBlog = () => {
                         type="text"
                         {...register("profession")}
                         required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                       />
                     </div>
                   </div>
@@ -141,7 +141,7 @@ const AddBlog = () => {
 
                 {/* Blog image input */}
 
-                <div className="flex gap-3 mb-3">
+                {/* <div className="flex gap-3 mb-3">
                   <div className="w-full  ">
                     <div className="w-full ">
                       <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2">
@@ -155,7 +155,7 @@ const AddBlog = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Blog title input */}
 
@@ -169,7 +169,7 @@ const AddBlog = () => {
                         {...register("title")}
                         type="text"
                         required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                       />
                     </div>
                   </div>
@@ -197,7 +197,7 @@ const AddBlog = () => {
                         type="text"
                         {...register("details")}
                         required
-                        className="input input-bordered w-full px-4 py-12 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full px-4 py-12 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                       />
                     </div>
                   </div>
@@ -206,14 +206,14 @@ const AddBlog = () => {
                 <div className=" mt-5">
                   <button
                     type="submit"
-                    className="group relative inline-flex items-center overflow-hidden rounded bg-[#1AA3D0] dark:bg-[#00A99D] px-16 ml-4 py-4 text-white focus:outline-none focus:ring active:bg-blue-500"
+                    className="group relative inline-flex items-center overflow-hidden rounded bg-[#1AA3D0] dark:bg-[#00A99D] px-9 ml-4 py-2 text-white focus:outline-none focus:ring active:bg-blue-500"
                   >
                     <span className="absolute right-0  translate-x-full transition-transform group-hover:-translate-x-4">
                       <BsArrowRight className="text-2xl font-bold" />
                     </span>
 
                     <span className="text-md font-bold transition-all group-hover:mr-4">
-                      Publish
+                      Submit
                     </span>
                   </button>
                 </div>
