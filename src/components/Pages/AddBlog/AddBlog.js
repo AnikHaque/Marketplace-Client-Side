@@ -1,107 +1,63 @@
 import React, { useContext } from "react";
+import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { BsArrowRight } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
-// import BlogAnimation from "../../Assets/Animation/BlogAnimation.json";
-// import Lottie from "lottie-react";
+import BlogAnimation from "../../Assets/Animation/BlogAnimation.json";
+import Lottie from "lottie-react";
 
 const AddBlog = () => {
-  const { register, handleSubmit } = useForm();
-  const { user, logUser } = useContext(AuthContext);
-  const imgBBkEY = process.env.REACT_APP_Imgbb_key;
-  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm();
+  const { user } = useContext(AuthContext);
+  
+    const onSubmit = data => {
+        console.log(data);
+        axios.post('http://localhost:5000/blogs', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                  toast('Added Successfully');
+                    reset();
+                }
+            })
+    };
 
-  const addBlog = (data) => {
-    const img = data?.photo[0];
-    const formData = new FormData();
-    formData.append("image", img);
-
-    const url = `https://api.imgbb.com/1/upload?&key=${imgBBkEY}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData?.success) {
-          const blogDetails = {
-            authorName: user?.displayName,
-            authorEmail: user?.email,
-            authorRole: logUser?.role,
-            authorImage: user?.photoURL,
-            title: data?.title,
-            category: data?.category,
-            details: data?.details,
-            blogImage: imgData?.data?.url,
-          };
-
-          // console.log(blogDetails);
-
-          fetch(`http://localhost:5000/blogs`, {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(blogDetails),
-          })
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-          toast.success("Successfully added your blog");
-          navigate("/blog");
-        }
-      });
-  };
+  
 
   return (
     <div>
-      <section className=" py-1 mt-8 bg-blueGray-50  dark:text-black">
-        {/* <div
-          id="title"
-          className="text-4xl font-extrabold text-[#1AA3D0] dark:text-[#00A99D]"
-        >
-          Drop your Blog
-        </div>
-        <p className="mt-3 dark:text-[#ffffff]">
-          Contribute to our community with your blog post
-        </p> */}
-        <div className="grid grid-cols-1 mt-10 px-4 mx-16 border shadow-lg bg-blue-100 rounded-md ">
+      <section className=" py-1 mt-5 bg-blueGray-50  dark:bg-black dark:text-black">
+        <div className="grid grid-cols-1 mt-10 px-4 mx-16 rounded-md">
           {/* <div className="flex justify-center items-center">
             <Lottie animationData={BlogAnimation} loop={true}></Lottie>
           </div> */}
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6  ">
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-2   ">
             <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-              <form onSubmit={handleSubmit(addBlog)}>
-                <h6 className="text-[#1AA3D0] dark:text-[#00A99D] text-lg  mt-3 mb-6 font-bold uppercase">
-                  Blog Information
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <h6 className="text-4xl p-9 font-bold text-blue-600 dark:text-gray-200">
+                Create your Blog
                 </h6>
                 <div className="flex justify-between  ">
                   <div className=" w-full mb-3 me-4">
-                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2 dark:text-[#00A99D]">
-                      Author Name
-                    </label>
                     <input
                       {...register("Name")}
                       type="text"
                       defaultValue={user?.displayName}
                       readOnly
                       required
-                      className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                      className="input input-bordered w-full dark:bg-white "
                     />
                   </div>
 
                   <div className="w-full">
-                    <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2">
-                      Email address
-                    </label>
                     <input
                       type="email"
                       {...register("email")}
                       readOnly
                       required
                       defaultValue={user?.email}
-                      className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                      className="input input-bordered w-full dark:bg-white "
                     />
                   </div>
                 </div>
@@ -111,13 +67,14 @@ const AddBlog = () => {
                   <div className="w-full">
                     <div >
                       <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2 ">
-                        Blog category
+                        
                       </label>
                       <input
                         type="text"
+                        placeholder="Blog category"
                         {...register("category")}
                         required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full dark:bg-white "
                       />
                     </div>
                   </div>
@@ -126,13 +83,14 @@ const AddBlog = () => {
                   <div className="w-full ms-3 ">
                     <div className="relative w-full ">
                       <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Author Profession
+                        
                       </label>
                       <input
                         type="text"
+                        placeholder="Author Profession"
                         {...register("profession")}
                         required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full dark:bg-white "
                       />
                     </div>
                   </div>
@@ -141,21 +99,22 @@ const AddBlog = () => {
 
                 {/* Blog image input */}
 
-                {/* <div className="flex gap-3 mb-3">
+                <div className="flex gap-3 mb-3">
                   <div className="w-full  ">
                     <div className="w-full ">
                       <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Blog Image
+                        
                       </label>
                       <input
                         {...register("photo")}
-                        type="file"
+                        placeholder="Blog Image"
+                        type="text"
                         // required
-                        className="input input-bordered w-full px-4 py-2 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full dark:bg-white "
                       />
                     </div>
                   </div>
-                </div> */}
+                </div>
 
                 {/* Blog title input */}
 
@@ -163,13 +122,14 @@ const AddBlog = () => {
                   <div className="w-full ">
                     <div className="relative w-full mb-3">
                       <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Blog title
+                        
                       </label>
                       <input
                         {...register("title")}
+                        placeholder="Blog title"
                         type="text"
                         required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full dark:bg-white "
                       />
                     </div>
                   </div>
@@ -183,7 +143,7 @@ const AddBlog = () => {
                         {...register("photo")}
                         type="file"
                         // required
-                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-2   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full px-4 py-3 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
                       />
                     </div>
                   </div> */}
@@ -191,34 +151,28 @@ const AddBlog = () => {
                   <div className="w-full lg:w-12/12 ">
                     <div className="relative w-full mb-3">
                       <label className="block dark:text-[#00A99D] uppercase text-blueGray-600 text-xs font-bold mb-2">
-                        Blog Details
+                        
                       </label>
                       <textarea
                         type="text"
+                        placeholder="Blog Details"
                         {...register("details")}
                         required
-                        className="input input-bordered w-full px-4 py-12 rounded-md dark:bg-white border-1   border-[#1AA3D0]  focus:outline-none focus:border-[#00A99D]"
+                        className="input input-bordered w-full dark:bg-white "
                       />
                     </div>
                   </div>
                 </div>
 
-                <div className=" mt-5">
+                <div className=" mt-2">
                   <button
                     type="submit"
-                    className="group relative inline-flex items-center overflow-hidden rounded bg-[#1AA3D0] dark:bg-[#00A99D] px-9 ml-4 py-2 text-white focus:outline-none focus:ring active:bg-blue-500"
-                  >
-                    <span className="absolute right-0  translate-x-full transition-transform group-hover:-translate-x-4">
-                      <BsArrowRight className="text-2xl font-bold" />
-                    </span>
-
-                    <span className="text-md font-bold transition-all group-hover:mr-4">
-                      Submit
-                    </span>
+                    className="px-5 py-3 w-full rounded-lg bg-blue-600 text-white font-semibold">
+                    Submit News
                   </button>
                 </div>
 
-                <hr className="mt-6 border-b-1 border-blueGray-300" />
+                {/* <hr className="mt-6 border-b-1 border-blueGray-300" /> */}
               </form>
             </div>
           </div>

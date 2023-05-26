@@ -23,64 +23,9 @@ const AddTeacher = () => {
   console.log(submitting);
   // console.log(logUser);
 
-
-
-  
-
   const addTeacher = (data) => {
 
-    setSubmitting(true);
-
-    const img = data.photo[0];
-
-    const formData = new FormData();
-
-    formData.append("image", img);
-
-    const url = `https://api.imgbb.com/1/upload?key=${ imgHostKey }`;
-
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        // console.log(imgData.data.url);
-        if (imgData.success) {
-          const teacherDetails = {
-            name: user?.displayName,
-            email: user?.email,
-            role: logUser?.role,
-            phone: data.number,
-            qualification: data.qualification,
-            experience: data.experience,
-            gender: data.gender,
-            fee: data.fee,
-            image: imgData.data.url,
-            location: data.location,
-            bio: data.bio,
-            background: data.background,
-          };
-
-          console.log(teacherDetails);
-
-          fetch(`https://edumate-second-server.vercel.app/api/v1/tutor`, {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(teacherDetails),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              if (data?.data) {
-                toast.success("Data inserted Successfully");
-                setSubmitting(false);
-              }
-            });
-        }
-      });
+     
   };
 
 

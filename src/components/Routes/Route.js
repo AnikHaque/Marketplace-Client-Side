@@ -33,6 +33,7 @@ import TutorTestQuestion from "../Pages/TutorTestQuestion/TutorTestQuestion";
 import SkillAssessments from "../Pages/SkillAssessments/SkillAssessments";
 import TeacherRoute from "./TeacherRoute";
 import TeacherCertificate from "../Pages/TeacherCertificate/TeacherCertificate";
+import InstructorsHome from "../Pages/Instructors/InstructorsHome";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/all-TeachersHome",
+        element: <InstructorsHome />,
       },
       {
         path: "/all-Teachers",
@@ -126,11 +131,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/add-Teacher",
         element: (
-          <PrivateRoute>
+          
             <TeacherRoute>
               <AddTeacher />
             </TeacherRoute>
-          </PrivateRoute>
+         
         ),
       },
       {

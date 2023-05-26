@@ -96,7 +96,7 @@ const SubjectWiseTeachers = () => {
             </Link>
 
           {/* All Department */}
-          <Link to={"/all-Teachers"}>
+          <Link to={"/all-TeachersHome"}>
               <a href="#g" className="group relative block h-36 ">
               <div className="flex-shrink-0 mx-2 -mb-6 photoo relative overflow-hidden bg-gray-200 rounded-lg max-w-xs shadow-lg hover:scale-110 ease-in duration-100">
                             <div className="relative pt-10 px-10 flex items-center justify-center">
