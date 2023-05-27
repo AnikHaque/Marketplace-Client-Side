@@ -73,7 +73,7 @@ const Home = () => {
         <h1 className="text-[#1AA3D0] dark:text-[#00A99D]">
           Name/ Location / Department
         </h1>
-        <div className=" bg-gradient-to-r from-[#5200AE] to-[#4062BB] ... rounded-lg mt-4 grid grid-cols-1 lg:grid-cols-12">
+        {/* <div className=" bg-gradient-to-r from-[#5200AE] to-[#4062BB] ... rounded-lg mt-4 grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-3">
             {filteredData[1] ? (
               <Lottie
@@ -117,7 +117,7 @@ const Home = () => {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <SubjectWiseTeachers />
