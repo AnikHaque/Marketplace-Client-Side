@@ -1,255 +1,294 @@
 import React, { useContext, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Lottie from "lottie-react";
-import SignUpAnimation from "../../Assets/Animation/SignUpAnimation.json";
 import { AuthContext } from "../../Context/AuthProvider";
+import useToken from "../../../hooks/useToken";
+import { getAuth, sendEmailVerification } from "firebase/auth";
 import { toast } from "react-toastify";
-// import image from "../../Assets/login.jpg";
 
-const Signup = () => {
- const {
+const SignUp = () => {
+
+  function onChange(value) {
+  console.log("Captcha value:", value);
+}
+  const { createUser, googleSignIn, updateUser, user } =
+    useContext(AuthContext);
+    const auth = getAuth();
+  const {
     register,
-    handleSubmit,
     formState: { errors },
-    watch, // Add watch function from react-hook-form
+    handleSubmit,
   } = useForm();
-
-  const { createUser, updateUser } = useContext(AuthContext);
-
-  const [signUpError, setSignUpError] = useState("");
-
+  const [signUpError, setSignUPError] = useState("");
   const navigate = useNavigate();
+  const [registeredUserEmail, setRegisteredUserEmail] = useState("");
+  const [token] = useToken(registeredUserEmail);
+  if (token) {
+    navigate("/login");
+  }
+  //   console.log(user?.displayName);
 
-  const imgHostKey = process.env.REACT_APP_Imgbb_key;
+  const handleRegisterform = (data) => {
+    console.log(data);
+    console.log(data.userName);
+    console.log(data.type);
 
-  const password = watch("password"); // Get the value of the password field
-
-  const handleSignUp = (data) => {
-    const name = data.name;
-    const email = data.email;
-    const password = data.password;
-    const phone = data.phoneNumber;
-    const role = data.role;
-    const image = data.img;
-
-    console.log(phone, role, name, password, image);
-
-    createUser(email, password)
+    createUser(data.email, data.password)
       .then((result) => {
-        const formData = new FormData();
+        const user = result.user;
+        console.log(user);
+        const userInfo = {
+          displayName: data.userName,
+        };
+        console.log(userInfo);
+        verifyEmail();
 
-        formData.append("image", image[0]);
-
-        const url = `https://api.imgbb.com/1/upload?key=${imgHostKey}`;
-
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((imgData) => {
-            console.log(imgData);
-
-            const photoURL = imgData?.data?.url;
-
-            updateUserDetails(name, photoURL);
-
-            if (imgData.success) {
-              const addedUser = {
-                name,
-                email,
-                role,
-                phone,
-                image: imgData.data.url,
-              };
-
-              fetch("https://edumate-second-server.vercel.app/api/v1/user", {
-                method: "POST",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify(addedUser),
-              })
-                .then((res) => res.json())
-                .then((result) => {
-                  if (result) {
-                    navigate("/");
-                    toast.success("Registration successful");
-                  }
-                });
-            }
-          });
+        // update user info
+        updateUser(userInfo)
+          .then(() => {
+            saveRegisteredUser(data.userName, data.email, data.type);
+          })
+          .catch((error) => console.error(error));
       })
-      .catch((error) => {
-        console.error(error);
-        setSignUpError(error.message);
-        if (error) {
-          toast.error(error.message.slice(22, 42));
-        }
+      .catch((err) => console.error(err));
+  };
+
+// Email Verification 
+const verifyEmail = () => {
+  sendEmailVerification(auth.currentUser)
+  .then(() => {
+   toast("Check Email for Verification")
+  });
+}
+
+  //   function to save registered users data
+  const saveRegisteredUser = (name, email, role) => {
+    const registeredUser = { name, email, role };
+    fetch(" http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(registeredUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // registeredUserToken(email);
+        setRegisteredUserEmail(email);
+        console.log(data);
       });
   };
 
-  const updateUserDetails = (name, photoURL) => {
-    updateUser(name, photoURL)
-      .then(() => {
-        toast.success("Profile Updated");
-        navigate("/");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-    
 
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user.displayName, user.email);
+        const role = "Buyer";
+        saveRegisteredUser(user.displayName, user.email, role);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
-    <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 md:my-12 lg:px-16 xl:px-32 text-[#1AA3D0] dark:text-[#00A99D]">
-      <div className="flex items-center">
-        <div className="space-y-2 w-full">
-          <h1 id="title" className="text-5xl mb-5 font-bold">
-            Register
-          </h1>
-          <p className="mb-5 text-2xl text-[#1AA3D0] dark:text-[#00A99D]">Lets create a better world</p>
-          <Lottie animationData={SignUpAnimation} loop={true}></Lottie>
-        </div>
-        <img src="assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />
-      </div>
-      <div className="w-full max-w-md p-8 space-y-3 rounded-xl  ">
-        <div className="flex justify-around py-5">
-          <h3 className="text-2xl font-bold text-center rounded-lg p-3 text-[#1AA3D0] dark:text-[#00A99D]">Sign Up</h3>
-          <Link
-            to="/authentication/login"
-            className="text-2xl border rounded-lg shadow-md dark:shadow-slate-50 p-3 font-bold text-center"
-          >
-            Login
-          </Link>
-        </div>
-
-        <form onSubmit={handleSubmit(handleSignUp)}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            <div className="text-sm">
-              <label className="flex m-2  dark:text-[#00A99D]">Name</label>
-              <input
-                type="text"
-                {...register("name", {
-                  required: "Name is requires",
-                })}
-                placeholder="Name"
-                name="name"
-                className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D]  "
-              />
-            </div>
-
-            <div className="text-sm">
-              <label className="flex m-2  dark:text-[#00A99D]">Email</label>
-              <input
-                type="text"
-                {...register("email", {
-                  required: "Email is required",
-                })}
-                placeholder="Email"
-                name="email"
-                className="input input-bordered w-full text-black px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
-              />
-              {errors.name && <p className="text-red-500">{errors.name.message}</p>}
-            </div>
-
-            <div className="mt-3 ms-1 text-sm">
-              <label className="flex m-2  dark:t#00A99D]">Password</label>
-              <input
-                type="text"
-                {...register("password", {
-                  required: "Password is required",
-                  minLength: {
-                    value: 6,
-                    message: "password must be 6 character long",
-                  },
-                 
-                })}
-                placeholder="Password"
-                name="password"
-                className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
-              />
-              {errors.password && <p className="text-red-500">{errors.password.message}</p>}
-            </div>
-<div className="mt-3 ms-1 text-sm">
-          <label className="flex m-2 dark:text-[#00A99D]">Confirm Password</label>
-          <input
-            type="password"
-            {...register("confirmPassword", {
-              required: "Confirm Password is required",
-              validate: (value) => value === password || "Passwords do not match",
-            })}
-            placeholder="Confirm Password"
-            name="confirmPassword"
-            className="input input-bordered text-black w-full px-4 py-3 rounded-full border-2 border-[#1AA3D0] dark
-:border-none focus:outline-none focus:border-[#00A99D]"
-/>
-{errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
+    // <div className="h-[800px] flex justify-center items-center">
+    //   <div className="w-96 p-7 bg-slate-500">
+    //     <h2 className="text-xl text-center">Register</h2>
+    //     <form onSubmit={handleSubmit(handleRegisterform)}>
+    //       <div className="form-control  w-full max-w-xs">
+    //         <label className="label">
+    //           {" "}
+    //           <span className="label-text">User Name</span>
+    //         </label>
+    //         <input
+    //           type="text"
+    //           {...register("userName", {})}
+    //           className="input input-bordered w-full  max-w-xs"
+    //         />
+    //         {errors.email && (
+    //           <p className="text-red-600">{errors.email?.message}</p>
+    //         )}
+    //       </div>
+    //       <div className="form-control  w-full max-w-xs">
+    //         <label className="label">
+    //           {" "}
+    //           <span className="label-text">Email</span>
+    //         </label>
+    //         <input
+    //           type="text"
+    //           {...register("email", {
+    //             required: "Email Address is required",
+    //           })}
+    //           className="input input-bordered w-full  max-w-xs"
+    //         />
+    //         {errors.email && (
+    //           <p className="text-red-600">{errors.email?.message}</p>
+    //         )}
+    //       </div>
+    //       <div className="form-control w-full max-w-xs">
+    //         <label className="label">
+    //           {" "}
+    //           <span className="label-text">Password</span>
+    //         </label>
+    //         <input
+    //           type="password"
+    //           {...register("password", {
+    //             required: "Password is required",
+    //             minLength: {
+    //               value: 6,
+    //               message: "Password must be 6 characters or longer",
+    //             },
+    //           })}
+    //           className="input input-bordered w-full  max-w-xs"
+    //         />
+    //         <label className="label">
+    //           {" "}
+    //           <span className="label-text ">Account Type</span>
+    //         </label>
+    //         <select
+    //           {...register("type", {})}
+    //           className="select w-full bg-white max-w-xs"
+    //         >
+    //           <option>Select Your Account Type</option>
+    //           <option>Seller</option>
+    //           <option>Buyer</option>
+    //           <option>Admin</option>
+    //         </select>
+    //         <label className="label">
+    //           {" "}
+    //           <span className="label-text">Forget Password?</span>
+    //         </label>
+    //         {errors.password && (
+    //           <p className="text-red-600">{errors.password?.message}</p>
+    //         )}
+    //       </div>
+    //       <input
+    //         className="btn btn-primary w-full"
+    //         value="Register"
+    //         type="submit"
+    //       />
+    //       <div>
+    //         {signUpError && <p className="text-red-600">{signUpError}</p>}
+    //       </div>
+    //     </form>
+    //     <p>
+    //       Already have an account?{" "}
+    //       <Link className="text-blue-700 font-semibold" to="/login">
+    //         Log In
+    //       </Link>
+    //     </p>
+    //     <div className="divider">OR</div>
+    //     <button
+    //       onClick={handleGoogleSignIn}
+    //       className="btn btn-outline  text-white w-full"
+    //     >
+    //       CONTINUE WITH GOOGLE
+    //     </button>
+    //   </div>
+    // </div>
+    <div>
+    <div className="grid grid-cols-1 lg:grid-cols-2">
+<div>
+  <img src="https://png.pngtree.com/png-vector/20220526/ourmid/pngtree-online-registration-or-sign-up-login-for-account-on-smartphone-app-png-image_4740863.png" className="w-full mt-4"></img>
 </div>
-            <div className="mt-3 ms-1 text-sm">
-              <label className="flex m-2  dark:text-[#00A99D]">Phone number</label>
-              <input
-                type="text"
-                {...register("phoneNumber", {
-                  required: "Phone number is required",
-                })}
-                placeholder="Number"
-                name="phoneNumber"
-                className="input input-bordered text-black w-96 px-4 py-3 rounded-full border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D] "
-              />
-              {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.message}</p>}
-            </div>
-          </div>
-
-          <div className="text-black">
-            <label className="label dark:t#00A99D]">
-              <span className="label-text mx-2 text-[#1AA3D0] dark:text-[#00A99D]">Who are you ?</span>
-            </label>
-            <select
-              className="input input-bordered text-black md:w-96 border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D]"
-              type="name"
-              {...register("role", {})}
-            >
-              <option>Student</option>
-              <option>Teacher</option>
-            </select>
-            {errors.phoneNumber && <p className="text-red-500">{errors.phoneNumber.message}</p>}
-          </div>
-
-          <div className="">
-            <label className="label">
-              <span className="label-text mx-2 text-[#1AA3D0] dark:text-[#00A99D]">Photo </span>
-            </label>
-            <input
-              type="file"
-              {...register("img", {
-                required: "Photo is Required",
-              })}
-              className="input input-bordered py-2 md:w-96 border-2  border-[#1AA3D0] dark:border-none focus:outline-none focus:border-[#00A99D]"
-            />
-            {errors.img && <p className="text-red-500">{errors.img.message}</p>}
-          </div>
-
-          <input
-            className="btn my-5 bg-[#1AA3D0] dark:bg-[#00A99D] hover:bg-[#00A99D] dark:hover:bg-[#1AA3D0] w-full p-3 text-center rounded-full border-0"
-            value="Signup"
-            type="submit"
-          />
-          {signUpError && <p className="text-red-600">{signUpError}</p>}
-        </form>
-        <p className="text-lg text-center sm:px-6 dark:text-[#00A99D]">
-          Already have an account?
-          <Link
-            to="/authentication/login"
-            className="text-2xl font-bold hover:underline mx-2 text-[#1AA3D0] dark:text[#00A99D]"
-          >
-            Log in
-          </Link>
-        </p>
-      </div>
+<div>
+<div class="main_div mt-4 ml-20 mb-4">
+    <div class="title">Register Form</div>
+    <div class="social_icons">
+      <a href="#"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
+      <Link onClick={handleGoogleSignIn}><i class="fa-brands fa-google"></i><span>Google</span></Link>
     </div>
+    <form onSubmit={handleSubmit(handleRegisterform)}>
+           <div className="form-control  w-full max-w-xs">
+            <input
+              type="text"
+              {...register("userName", {})}
+             className="input input-bordered w-full  max-w-xs mb-2"
+             placeholder="User Name"
+             />
+            {errors.email && (
+              <p className="text-red-600">{errors.email?.message}</p>
+            )}
+          </div>
+          <div className="form-control  w-full max-w-xs">
+            <input
+               type="text"
+              {...register("email", {
+                required: "Email Address is required",
+              })}
+              placeholder="Email Address"
+               className="input input-bordered w-full mb-2 max-w-xs"
+             />
+            {errors.email && (
+               <p className="text-red-600">{errors.email?.message}</p>
+            )}
+          </div>
+           <div className="form-control w-full max-w-xs">
+           
+             <input
+               type="password"
+               {...register("password", {
+                required: "Password is required",
+                 minLength: {
+                   value: 6,
+                   message: "Password must be 6 characters or longer",
+                 },
+               })}
+               placeholder="Password"
+              className="input input-bordered w-full  max-w-xs"
+             />
+            
+            <select
+               {...register("type", {})}
+               className="select w-full bg-white max-w-xs"
+             >
+               <option>Select Your Account Type</option>
+            <option>Teacher</option>
+               <option>Student</option>
+               
+             </select>
+            
+             {errors.password && (
+               <p className="text-red-600">{errors.password?.message}</p>
+             )}
+           </div>
+
+           <div>
+           <ReCAPTCHA
+    sitekey="6LcbIsklAAAAAKbYZrySlY59OCj3e3gjP4lj7YC9
+"
+    onChange={onChange}
+  />,
+           </div>
+          
+           <input
+             className="btn btn-primary w-full"
+             value="Register"
+             type="submit"
+           />
+           <div class="option_div">
+        <div class="check_box">
+          <input type="checkbox" />
+          <span>Remember me</span>
+        </div>
+        <div class="forget_div">
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+           <div>
+             {signUpError && <p className="text-red-600">{signUpError}</p>}
+           </div>
+           <div class="sign_up">
+        Already an member? <Link to="/login"><a>Login now</a></Link>
+      </div>
+         </form>
+  </div>
+</div>
+    </div>
+  </div>
   );
 };
 
-export default Signup;
+export default SignUp;
