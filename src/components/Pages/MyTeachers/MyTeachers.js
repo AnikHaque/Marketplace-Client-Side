@@ -62,31 +62,31 @@ const MyTeachers = () => {
   };
 
   return (
-    <div className=" dark:bg-[#350573] ">
-      <section className="bg-white max-w-screen">
+    <div className=" dark:bg-[#350573] p-9">
+      <section className=" max-w-screen">
         <div className="container mx-auto">
           <div className=" flex flex-wrap">
             <div className="w-full">
-              <div className="max-w-full overflow-x-auto">
+              <div className="max-w-full overflow-x-auto rounded-md">
                 <table className="w-full table-auto">
                   <thead>
-                    <tr className="bg-blue-500 text-center">
-                      <th className="w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                    <tr className="bg-[#F3F6FF] text-gray-800 text-center">
+                      <th className="w-1/6 min-w-[160px] border-l border-transparent px-3 text-lg font-semibold text-gray-700 lg:py-5 lg:px-2">
                         Teachers Info
                       </th>
-                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold lg:py-7 lg:px-4">
                         Background
                       </th>
-                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold lg:py-7 lg:px-4">
                         Location
                       </th>
-                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold lg:py-7 lg:px-4">
                         Fee
                       </th>
-                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                      <th className="w-1/6 min-w-[160px] py-4 px-3 text-lg font-semibold lg:py-7 lg:px-4">
                         Payment
                       </th>
-                      <th className="w-1/6 min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                      <th className="w-1/6 min-w-[160px] border-r border-transparent py-4 px-3 text-lg font-semibold lg:py-7 lg:px-4">
                         Delete
                       </th>
                     </tr>
@@ -95,7 +95,7 @@ const MyTeachers = () => {
                   <tbody>
                     {teachers?.map((teacher, idx) => (
                       <tr key={idx}>
-                        <td className="text-black flex gap-5 border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-center text-base font-medium">
+                        <td className="text-black flex gap-5 border-b border-l border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
                           <div className="avatar">
                             <div className="w-12 rounded-full  ">
                               <img
@@ -105,7 +105,7 @@ const MyTeachers = () => {
                             </div>
                           </div>
 
-                          <div className="text-start">
+                          <div className="text-start bg-white">
                             <p className="font-bold">{teacher?.teachername}</p>
                             <p className="">{teacher?.teacheremail}</p>
                           </div>
@@ -113,7 +113,7 @@ const MyTeachers = () => {
                         <td className="border-b border-[#E8E8E8] text-black bg-white py-5 px-2 text-center text-base font-medium">
                           {teacher?.teacherbackground}
                         </td>
-                        <td className="border-b border-[#E8E8E8] text-black bg-[#F3F6FF] py-5  text-center text-base font-medium">
+                        <td className="border-b border-[#E8E8E8] text-black bg-white py-5  text-center text-base font-medium">
                           {teacher?.teacherlocation}
                         </td>
                         <td className="border-b border-[#E8E8E8] text-black bg-white py-5 px-2 text-center text-base font-medium">

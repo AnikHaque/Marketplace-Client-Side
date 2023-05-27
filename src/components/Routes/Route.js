@@ -34,6 +34,7 @@ import SkillAssessments from "../Pages/SkillAssessments/SkillAssessments";
 import TeacherRoute from "./TeacherRoute";
 import TeacherCertificate from "../Pages/TeacherCertificate/TeacherCertificate";
 import InstructorsHome from "../Pages/Instructors/InstructorsHome";
+import EditProfileForm from "../Pages/MyProfile/EditProfileForm";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -127,6 +128,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <MyProfile />,
+      },
+      {
+        path: "/dashboard/edit-profile",
+        element: <EditProfileForm />,
       },
       {
         path: "/dashboard/add-Teacher",
