@@ -35,6 +35,7 @@ import TeacherRoute from "./TeacherRoute";
 import TeacherCertificate from "../Pages/TeacherCertificate/TeacherCertificate";
 import InstructorsHome from "../Pages/Instructors/InstructorsHome";
 import EditProfileForm from "../Pages/MyProfile/EditProfileForm";
+import AddSellerProfile from "../Pages/DashBoard/AddSellerProfile/AddSellerProfile";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -167,6 +168,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/all-Teachers",
         element: <Instructors />,
+      },
+      {
+        path: "/dashboard/seller-profile",
+        element: <AddSellerProfile />,
       },
 
       {
