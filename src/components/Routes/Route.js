@@ -36,6 +36,7 @@ import TeacherCertificate from "../Pages/TeacherCertificate/TeacherCertificate";
 import InstructorsHome from "../Pages/Instructors/InstructorsHome";
 import EditProfileForm from "../Pages/MyProfile/EditProfileForm";
 import AddSellerProfile from "../Pages/DashBoard/AddSellerProfile/AddSellerProfile";
+import RegisterAs from "../Pages/Authentication/RegisterAs";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "/authentication/login",
         element: <Login />,
+      },
+      {
+        path: "/authentication/registeras",
+        element: <RegisterAs />,
       },
       {
         path: "/authentication/signup",
