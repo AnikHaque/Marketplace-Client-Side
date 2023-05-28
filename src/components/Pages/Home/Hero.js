@@ -49,7 +49,7 @@ const Hero = () => {
 
             {/* ---------pic--------- */}
             <div className="lg:w-1/2 lg:pr-10 xl:pr-0">
-              <img className="mx-auto" src={bannerPic} alt="img" />
+              <img className="mx-auto" src='https://marketplace.exertiowp.com/wp-content/uploads/2021/10/Group-441.png?fbclid=IwAR1ih8hf97_Ywvr5x2MzVLFGFenfKNwlFPoBhKoOhhL9ap3AfOw4d14rg5M' alt="img" />
             </div>
           </div>
         </div>
