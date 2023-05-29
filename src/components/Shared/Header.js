@@ -45,10 +45,10 @@ const Header = () => {
       .catch((error) => console.error(error));
   };
 
-  const [openNav, setOpenNav] = useState(false);
-  useEffect(() => {
-    window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
-  }, []);
+  // const [openNav, setOpenNav] = useState(false);
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
+  // }, []);
 
   const navStyle = ({ isActive }) => {
     return {
@@ -138,7 +138,7 @@ const Header = () => {
   </div>
   <div className="ml-[-350px] hidden lg:flex">
     <ul className="menu menu-horizontal lg:mr-16">
-      <li className="text-black "><Link>About</Link></li>
+      <li className="text-black "><Link to='/contact'>About</Link></li>
       <li className="text-black "><Link>Dashboard</Link></li>
       <li className="text-black "><Link>About</Link></li>
       <li className="text-black "><Link>Dashboard</Link></li>
@@ -210,83 +210,10 @@ const Header = () => {
 
 
 
-        {/* 2nd Navbar  */}
-              {/* responsive-mobile */ }
-       <nav className="md:hidden shadow-sm w-full z-10">
-         <div className="w-full">
-           <div className="flex items-center h-20 w-full">
-             <div className="flex bg-gray-800 bg-opacity-60 z-20 top-0 backdrop-filter backdrop-blur-lg shadow-sm w-full fixed items-center md:mx-20 justify-between">
-               <div className="flex justify-center items-center flex-shrink-0">
-                 <div className="mr-10 flex md:hidden ">
-                   <button
-                    onClick={ () => setIsOpen(!isOpen) }
-                    type="button"
-
-                    className=" inline-flex items-center justify-center p-2 rounded-md text-black  focus:outline-none  "
-                    aria-controls="mobile-menu"
-                    aria-expanded="false"
-                  >
-                    <span className="sr-only">Open main menu</span>
-                    { !isOpen ? (
-                      <svg
-                        className="block h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4 6h16M4 12h16M4 18h16"
-                        />
-                      </svg>
-                    ) : (
-                      <svg
-                        className="block h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    ) }
-                  </button>
-                </div>
-                <Link to="/">
-                  <h1 className="flex items-center button font-bold text-xl cursor-pointer">
-                    <p className="text-black">Market Place</p>
-                  </h1>
-                </Link>
-              </div>
-              <div>
-                <Link to='/' className="cursor-pointer flex items-center ">
-                  <img
-                    className="md:w-12 w-14"
-                    src="https://i.ibb.co/Bw1TVQS/project-logo.png"
-                    alt="project-logo"
-                    border="0"
-                  />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
 
 
 
-
-        {/*  */}
+        {/* 2nd nav */}
         <nav className="shadow-sm w-full ">
         <Transition
           show={ isOpen }
@@ -321,14 +248,14 @@ const Header = () => {
                   Courses
                 </HashLink>
                 <HashLink smooth
-                  to='/#blogs' scroll={ el => scrollWithOffset(el) }
+                  to='/blogs' scroll={ el => scrollWithOffset(el) }
 
                   className="cursor-pointer  text-black   block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Blogs
                 </HashLink>
                 <HashLink smooth
-                  to='/#contact' scroll={ el => scrollWithOffset(el) }
+                  to='/contact' scroll={ el => scrollWithOffset(el) }
 
                   className="cursor-pointer  text-black   block px-3 py-2 rounded-md text-base font-medium"
                 >
@@ -370,7 +297,7 @@ const Header = () => {
                   Blogs
                 </HashLink>
                 <HashLink smooth
-                  to='/#contact' scroll={ el => scrollWithOffset(el) }
+                  to='/contact' scroll={ el => scrollWithOffset(el) }
                   className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Contact
