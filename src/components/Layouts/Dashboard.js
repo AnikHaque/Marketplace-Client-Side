@@ -78,23 +78,31 @@ const DashBoard = () => {
                 </Link>
               </li>
             )}
-            {user && (
-              <li>
-                <Link to="/dashboard/add-course">
-                  <FaBlogger />
-                  Add Course
-                </Link>
-              </li>
-            )}
 
-            
+          
+              <>
+                
 
-            {logUser?.role === "Teacher" && (
+                <li>
+                  <Link to="/dashboard/tutor-test-question">
+                    <FaChalkboardTeacher />
+                    Be a teacher
+                  </Link>
+                </li>
+              </>
+           
+
+          
               <>
                 <li className="">
                   <Link to="/dashboard/tutor-test-question">
                     <FaChalkboardTeacher />
                     Be a teacher
+                  </Link>
+                </li>
+                <li className="">
+                  <Link to="/dashboard/seller-profile">
+                 Add Seller Profile
                   </Link>
                 </li>
 
@@ -123,9 +131,9 @@ const DashBoard = () => {
                   </Link>
                 </li>
               </>
-            )}
+           
 
-            {logUser?.role === "Student" && (
+          
               <>
                 <li className="">
                   <Link to="/dashboard/my-Teachers">
@@ -137,7 +145,7 @@ const DashBoard = () => {
                   </Link>
                 </li>
               </>
-            )}
+            
           </ul>
         </div>
       </div>
