@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
 import axios from 'axios';
 import { useForm } from "react-hook-form";
-import { BsArrowRight } from "react-icons/bs";
-// import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
-import BlogAnimation from "../../Assets/Animation/BlogAnimation.json";
-import Lottie from "lottie-react";
 
 const AddBlog = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -28,14 +24,14 @@ const AddBlog = () => {
   return (
     <div>
       <section className=" py-1 mt-5 bg-blueGray-50  dark:bg-black dark:text-black">
-        <div className="grid grid-cols-1 mt-10 px-4 mx-16 rounded-md">
+        <div className="lg:px-16">
           {/* <div className="flex justify-center items-center">
             <Lottie animationData={BlogAnimation} loop={true}></Lottie>
           </div> */}
           <div className="relative flex flex-col min-w-0 break-words w-full mb-2   ">
-            <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+            <div className="flex-auto px-4 lg:px-10 py-16 pt-0">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <h6 className="text-4xl p-9 font-bold text-blue-600 dark:text-gray-200">
+                <h6 className="text-4xl py-5 font-bold text-blue-600 dark:text-gray-200">
                 Create your Blog
                 </h6>
                 <div className="flex justify-between  ">
@@ -167,8 +163,8 @@ const AddBlog = () => {
                 <div className=" mt-2">
                   <button
                     type="submit"
-                    className="px-5 py-3 w-full rounded-lg bg-blue-600 text-white font-semibold">
-                    Submit News
+                    className="px-5 py-3 w-full rounded-lg bg-gradient-to-r from-[#045DE9] to-[#09C6F9] text-white font-semibold">
+                    Submit
                   </button>
                 </div>
 
