@@ -23,6 +23,7 @@ import Testimonial from "../Testimonials/Testimonial";
 import Courses from "../Courses/Courses";
 import Hero from "./Hero/Hero";
 import NewsLetter from "./NewsLetter/NewsLetter";
+import Catagories from "./Catagories/Catagories";
 
 
 const Home = () => {
@@ -122,6 +123,7 @@ const Home = () => {
 
       <SubjectWiseTeachers />
       <AboutOurs />
+      <Catagories/>
       <Courses></Courses>
       <FaqAnswer />
       <Sponsor />
