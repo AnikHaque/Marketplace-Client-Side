@@ -25,7 +25,10 @@
     align-items: start;
     color: white;
   }
-  
+  .banner-list{
+    list-style-type: circle;
+    margin-left: 40px;
+  }
   /* .overlay {
     position: absolute;
     top: 0;
