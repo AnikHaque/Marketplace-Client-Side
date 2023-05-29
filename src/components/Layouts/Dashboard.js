@@ -78,19 +78,16 @@ const DashBoard = () => {
                 </Link>
               </li>
             )}
-
-            {logUser?.role === "Teacher" && (
-              <>
-                
-
-                <li>
-                  <Link to="/dashboard/tutor-test-question">
-                    <FaChalkboardTeacher />
-                    Be a teacher
-                  </Link>
-                </li>
-              </>
+            {user && (
+              <li>
+                <Link to="/dashboard/add-course">
+                  <FaBlogger />
+                  Add Course
+                </Link>
+              </li>
             )}
+
+            
 
             {logUser?.role === "Teacher" && (
               <>

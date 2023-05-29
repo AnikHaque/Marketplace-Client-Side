@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
 import { toast } from "react-toastify";
 
-const AddBlog = () => {
+const AddCourse = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useContext(AuthContext);
   
@@ -32,7 +32,7 @@ const AddBlog = () => {
             <div className="flex-auto px-4 lg:px-10 py-16 pt-0">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h6 className="text-4xl py-5 font-bold text-blue-600 dark:text-gray-200">
-                Create your Blog
+                Create your Course
                 </h6>
                 <div className="flex justify-between  ">
                   <div className=" w-full mb-3 me-4">
@@ -178,4 +178,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default AddCourse;

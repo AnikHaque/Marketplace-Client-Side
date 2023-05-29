@@ -35,6 +35,7 @@ import TeacherRoute from "./TeacherRoute";
 import TeacherCertificate from "../Pages/TeacherCertificate/TeacherCertificate";
 import InstructorsHome from "../Pages/Instructors/InstructorsHome";
 import EditProfileForm from "../Pages/MyProfile/EditProfileForm";
+import AddCourse from "../Pages/AddCourse/AddCourse";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -106,15 +107,15 @@ const router = createBrowserRouter([
 
   //! Authentication Pages
   {
-    path: "/authentication",
+    path: "/",
     element: <Form />,
     children: [
       {
-        path: "/authentication/login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "/authentication/signup",
+        path: "signup",
         element: <Signup />,
       },
     ],
@@ -132,6 +133,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/edit-profile",
         element: <EditProfileForm />,
+      },
+      {
+        path: "/dashboard/add-course",
+        element: <AddCourse/>,
       },
       {
         path: "/dashboard/add-Teacher",

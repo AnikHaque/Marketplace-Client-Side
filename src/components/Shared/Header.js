@@ -102,10 +102,10 @@ const Header = () => {
         </a>
       ) : (
         <>
-          <NavLink to={"/authentication/login"} className="flex lg:hidden justify-center mt-2  items-center">
+          <NavLink to={"/login"} className="flex lg:hidden justify-center mt-2  items-center">
             Sign In
           </NavLink>
-          <NavLink to={"/authentication/signup"} className="flex lg:hidden justify-center mt-2   items-center">
+          <NavLink to={"/signup"} className="flex lg:hidden justify-center mt-2   items-center">
             Sign Up
           </NavLink>
         </>
@@ -188,10 +188,10 @@ const Header = () => {
                 ) : (
                   <>
                     <li>
-                      <Link to="/authentication/login">Login</Link>
+                      <Link to="/login">Login</Link>
                     </li>
                     <li>
-                      <Link to="/authentication/signup">Signup</Link>
+                      <Link to="/signup">Signup</Link>
                     </li>
                   </>
                 )}
