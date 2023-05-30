@@ -3,75 +3,29 @@ import React from 'react';
 
 const FaqAnswer = () => {
     return (
-       <div className='bg-gradient-to-r from-[#009FFD] to-[#045DE9] ml-9 mr-9 mt-20 mb-20 p-20 rounded-lg'>
-        <h1 className='text-center text-3xl font-bold mb-9 text-[white]'>Q&A</h1>
-         <div className='grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 px-7 gap-4  '>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                What can I sell?
-                </div>
-                <div className="collapse-content">
-                    <p>Be creative! You can offer any service you wish as long as it's legal and complies with our terms. There are over 200 categories you can browse to get ideas.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                What can I sell?
-                </div>
-                <div className="collapse-content">
-                    <p>Be creative! You can offer any service you wish as long as it's legal and complies with our terms. There are over 200 categories you can browse to get ideas.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                What can I sell?
-                </div>
-                <div className="collapse-content">
-                    <p>Be creative! You can offer any service you wish as long as it's legal and complies with our terms. There are over 200 categories you can browse to get ideas.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                How much money can I make?
-                </div>
-                <div className="collapse-content">
-                    <p>It's totally up to you. You can work as much as you want. Many sellers work on Fiverr full time and some keep their 9-5 job while using Fiverr to make extra money.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                How much does it cost
-                </div>
-                <div className="collapse-content">
-                    <p>It's free to join Fiverr. There is no subscription required or fees to list your services. You keep 80% of each transaction.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                How much time will I need to invest?
-                </div>
-                <div className="collapse-content">
-                    <p>It's very flexible. You need to put in some time and effort in the beginning to learn the marketplace and then you can decide for yourself what amount of work you want to do.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                How do I price my service?
-                </div>
-                <div className="collapse-content">
-                    <p>With Gig Packages, you set your pricing anywhere from $5 - $995 and offer three versions of your service at three different prices.</p>
-                </div>
-            </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-                <div className="collapse-title text-xl font-bold">
-                How do I get paid?
-                </div>
-                <div className="collapse-content">
-                    <p>Once you complete a buyer's order, the money is transferred to your account. No need to chase clients for payments and wait 60 or 90 days for a check.</p>
-                </div>
-            </div>
-        </div>
-       </div>
+      <section className="bg-gray-100 text-gray-800">
+	<div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
+		<h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">Frequently Asked Questions</h2>
+		<div className="divide-y divide-gray-300">
+			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
+				<h3 className="font-semibold md:col-span-5">Optio maiores eligendi molestiae totam dolores similique?</h3>
+				<p className="md:pl-0 md:col-span-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque in fugiat magni, quas animi enim veritatis deleniti ex. Impedit.</p>
+			</div>
+			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
+				<h3 className="font-semibold md:col-span-5">Optio maiores eligendi molestiae totam dolores similique?</h3>
+				<p className="md:pl-0 md:col-span-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aspernatur quae, eos explicabo odit minima libero veniam similique quibusdam doloribus facilis ipsa accusantium vel maiores corrupti! Libero voluptate a doloribus?</p>
+			</div>
+			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
+				<h3 className="font-semibold md:col-span-5">Modi dolorem veritatis culpa quos consequuntur beatae itaque excepturi perspiciatis?</h3>
+				<p className="md:pl-0 md:col-span-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut voluptates aspernatur dolores in consequatur doloremque inventore reprehenderit, consequuntur perspiciatis architecto.</p>
+			</div>
+			<div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
+				<h3 className="font-semibold md:col-span-5">Magni reprehenderit possimus debitis?</h3>
+				<p className="md:pl-0 md:col-span-7">Sed consectetur quod tenetur! Voluptatibus culpa incidunt veritatis velit quasi cupiditate unde eaque! Iure, voluptatibus autem eaque unde possimus quae.</p>
+			</div>
+		</div>
+	</div>
+</section>
     );
 };
 
