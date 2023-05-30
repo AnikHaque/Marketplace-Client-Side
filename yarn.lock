@@ -1711,6 +1711,11 @@
   dependencies:
     client-only "^0.0.1"
 
+"@heroicons/react@^2.0.13":
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.18.tgz#f80301907c243df03c7e9fd76c0286e95361f7c1"
+  integrity sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
@@ -2032,12 +2037,13 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@material-tailwind/react@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@material-tailwind/react/-/react-1.4.2.tgz#e068f3e6c547537b597e57b0d5c3da3ddb642994"
-  integrity sha512-XJ1Ie8xXMV2qZEtm0LgnJNK+8Lh1Si8TvOf0jKWGI2rHleD8U/Zype6k1AyRhBHHUwc6B19w8uR1fCIFvumURQ==
+"@material-tailwind/react@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@material-tailwind/react/-/react-2.0.1.tgz#ddb3f97b6320158545c9bfb827c60319590b569d"
+  integrity sha512-V40Tq9gJB6lIdsob4DXEDKoVzJ5BqOcj5hq4VepwJhLkQ2pKlWh7GIpFQtq6Pmhw65CmSQ3bjOzm/5YbeMycAA==
   dependencies:
     "@floating-ui/react" "^0.19.0"
+    "@heroicons/react" "^2.0.13"
     classnames "^2.3.2"
     deepmerge "^4.2.2"
     framer-motion "^6.5.1"

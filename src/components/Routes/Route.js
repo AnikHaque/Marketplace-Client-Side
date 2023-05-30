@@ -37,6 +37,9 @@ import InstructorsHome from "../Pages/Instructors/InstructorsHome";
 import EditProfileForm from "../Pages/MyProfile/EditProfileForm";
 import AddSellerProfile from "../Pages/DashBoard/AddSellerProfile/AddSellerProfile";
 import RegisterAs from "../Pages/Authentication/RegisterAs";
+import GigCards from "../Pages/Home/Catagories/GigCards/GigCards";
+import GigDetails from "../Pages/Home/GigDetails/GigDetails";
+import GigDetailsrightside from "../Pages/Home/GigDetails/GIgDetailsrightside";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -102,6 +105,18 @@ const router = createBrowserRouter([
         loader: ({ params }) => {
           return fetch(`https://edumate-second-server.vercel.app/api/v1/tutor/instructor/${params.background}`);
         },
+      },
+      {
+        path: "/gigcards",
+        element: <GigCards/>,
+      },
+      {
+        path: "/gigdetails",
+        element: <GigDetails/>,
+      },
+      {
+        path: "/gigdetailsrightside",
+        element: <GigDetailsrightside/>,
       },
     ],
   },
