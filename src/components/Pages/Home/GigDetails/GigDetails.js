@@ -10,7 +10,16 @@ Tab,
 TabPanel,
 } from "@material-tailwind/react";
 import star from "../../../Assets/star.png"
-function GigDetails() {
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { set } from "react-hook-form";
+
+const GigDetails = () => {
+
+const [test, setTest] = useState(false)
+const handleClick = () => {
+ setTest(true)
+}
 const data = [
   // basic cards
 {
@@ -18,7 +27,7 @@ label: "Basic",
 value: "basic",
 // icon: Square3Stack3DIcon,
 desc: 
-<div>
+<div className="gig-details-card">
    <div className="price">
       <h3 className="text-lg font-bold text-gray-900">1 AI generated image</h3>
       <h2 >$ 59.99</h2>
@@ -439,23 +448,71 @@ return (
          </div>
       </div>
       {/* right */}
-      <div className="right ">
+      <div className="right hui ">
          <Tabs value="dashboard">
+            <div onClick={handleClick}>
             <TabsHeader>
                {data.map(({ label, value, }) => (
+                    
                <Tab key={value} value={value}>
                   <div className="flex items-center gap-2">
                      {label}
                   </div>
                </Tab>
+               
                ))}
             </TabsHeader>
+           </div>
             <TabsBody>
                {data.map(({ value, desc }) => (
+            
                <TabPanel key={value} value={value}>
                   {desc}
                </TabPanel>
+             
                ))}
+               {
+                  !test && 
+                  <div className="gig-details-card ml-4 mt-2 ">
+   <div className="price">
+      <h3 className="text-lg font-bold text-gray-900">1 AI generated image</h3>
+      <h2 >$ 59.99</h2>
+   </div>
+   <p className="text-md py-5 text-start font-semibold text-gray-700">
+      I will create a unique high quality AI generated image based on a
+      description that you give me
+   </p>
+   <div className="details">
+      <div className="item">
+         <img className="mb-2" src={clock} alt="" />
+         <span  aria-hidden="true" width="16px" height="16px" className="font-bold text-gray-600 mb-2" > 2 Days Delivery</span>
+      </div>
+      <div className="item">
+         <img src="/img/recycle.png" alt="" />
+         <span className="font-semibold text-gray-600">3 Revisions</span>
+      </div>
+   </div>
+   <div className="features ">
+      <div className="item">
+         <img src={check} alt="" />
+         <span className="text-gray-600 font-semibold text-sm">Prompt writing</span>
+      </div>
+      <div className="item">
+         <img src={check} alt="" />
+         <span className="text-gray-600 font-semibold text-sm">Artwork delivery</span>
+      </div>
+      <div className="item">
+         <img src={check} alt="" />
+         <span className="text-gray-600 font-semibold text-sm">Image upscaling</span>
+      </div>
+      <div className="item">
+         <img src={check} alt="" />
+         <span className="text-gray-600 font-semibold text-sm">Additional design</span>
+      </div>
+   </div>
+   <button className="rounded-lg  w-full mt-5">Continue</button>
+</div>
+               }
             </TabsBody>
          </Tabs>
       </div>

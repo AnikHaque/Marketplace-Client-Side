@@ -243,7 +243,7 @@ button:hover .button-text {
 }
 
 .App {
-  text-align: center;
+ 
   font-family: "Poppins", sans-serif;
 }
 
@@ -281,3 +281,4 @@ button:hover .button-text {
     transform: rotate(360deg);
   }
 }
+
