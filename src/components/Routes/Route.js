@@ -39,6 +39,7 @@ import AddSellerProfile from "../Pages/DashBoard/AddSellerProfile/AddSellerProfi
 import RegisterAs from "../Pages/Authentication/RegisterAs";
 import GigCards from "../Pages/Home/Catagories/GigCards/GigCards";
 import GigDetails from "../Pages/Home/GigDetails/GigDetails";
+import GigDetailsrightside from "../Pages/Home/GigDetails/GIgDetailsrightside";
 // import Quiz from "../Pages/Quiz/Quiz";
 
 const router = createBrowserRouter([
@@ -112,6 +113,10 @@ const router = createBrowserRouter([
       {
         path: "/gigdetails",
         element: <GigDetails/>,
+      },
+      {
+        path: "/gigdetailsrightside",
+        element: <GigDetailsrightside/>,
       },
     ],
   },

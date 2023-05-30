@@ -5,8 +5,8 @@ const Catagories = () => {
     return (
         <div>
             <div className="container mx-auto">
-      <h2 className="md:text-4xl text-3xl text-center font-bold text-left text-primary">
-        Explore the marketplace
+      <h2 className="md:text-5xl text-4xl text-center font-bold text-left text-blue-600 ">
+      Get work done in over 180 different categories
       </h2>
       <div className="grid  md:grid-cols-5 grid-cols-2 pl-16">
         <div className="flex ">
@@ -93,6 +93,7 @@ const Catagories = () => {
             </h2>
           </div>
         </div>
+        
 
       </div>
     </div>
