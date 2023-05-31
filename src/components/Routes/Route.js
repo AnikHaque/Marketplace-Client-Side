@@ -41,6 +41,7 @@ import GigCards from "../Pages/Home/Catagories/GigCards/GigCards";
 import GigDetails from "../Pages/Home/GigDetails/GigDetails";
 import GigDetailsrightside from "../Pages/Home/GigDetails/GIgDetailsrightside";
 import AddOverview from "../Pages/Home/AddGigs/AddOverview";
+import AddPricing from "../Pages/Home/AddGigs/AddPricing";
 
 const router = createBrowserRouter([
   //! Main Pages
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
       {
         path: "/gigoverview",
         element: <AddOverview/>,
+      },
+      {
+        path: "/gigpricing",
+        element: <AddPricing/>,
       },
       
     ],
